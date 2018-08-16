@@ -140,7 +140,20 @@ public class SimpleHTTPServer
             try
             {
                 HttpListenerContext context = _listener.GetContext();
-                Process(context);
+                if (context.Request.QueryString.Count > 0)
+                {
+                    Console.Write(context.Request.QueryString["data"]);
+                    Console.Write("Request Made");
+                    context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+                    context.Response.Headers.Add("Access-Control-Allow-Methods", "POST, GET");
+                    var buf = Encoding.UTF8.GetBytes("var test = 1");
+                    context.Response.ContentLength64 = buf.Length;
+                    context.Response.OutputStream.Write(buf, 0, buf.Length);
+                }
+                else
+                {
+                    Process(context);
+                }
             }
             catch (Exception ex)
             {
@@ -223,7 +236,7 @@ internal class Program
         SimpleHTTPServer myServer;
 
         //Creating server with specified port
-        myServer = new SimpleHTTPServer(myFolder, 8084);
+        myServer = new SimpleHTTPServer(myFolder, 8080);
 
         //Now it is running:
         Console.WriteLine("Server is running on this port: " + myServer.Port.ToString());
