@@ -10,23 +10,24 @@ import * as $ from 'jquery';
 })
 @Injectable()
 export class AppComponent {
+  string: string;
+
   constructor(private http: HttpClient) { }
 
   test() {
     $.ajax({
       type: 'post',
       contentType: "application/json; charset=utf-8",
-      dataType: 'jsonp',
+      dataType: 'json',
       data: {
-        data: "test"
+        data: this.string,
+        another: this.string
       },
       url: 'http://localhost:8080/',
     })
-      .then(function (response) {
-        console.log(response);
-      })
       .always(function (response) {
         console.log(response);
+        console.log(response.responseText);
       });
   }
 }

@@ -137,18 +137,22 @@ public class SimpleHTTPServer
         _listener.Start();
         while (true)
         {
+            HttpListenerContext context = _listener.GetContext();
             try
             {
-                HttpListenerContext context = _listener.GetContext();
-                if (context.Request.QueryString.Count > 0)
+                if (context.Request.HasEntityBody)
                 {
-                    Console.Write(context.Request.QueryString["data"]);
-                    Console.Write("Request Made");
-                    context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-                    context.Response.Headers.Add("Access-Control-Allow-Methods", "POST, GET");
-                    var buf = Encoding.UTF8.GetBytes("var test = 1");
+                    Console.WriteLine("Request Made");
+
+                    Stream body = context.Request.InputStream;
+                    Encoding encoding = context.Request.ContentEncoding;
+                    StreamReader reader = new System.IO.StreamReader(body, encoding);
+
+                    string data = reader.ReadToEnd();
+                    var buf = Encoding.UTF8.GetBytes(data);
                     context.Response.ContentLength64 = buf.Length;
                     context.Response.OutputStream.Write(buf, 0, buf.Length);
+                    context.Response.OutputStream.Close();
                 }
                 else
                 {

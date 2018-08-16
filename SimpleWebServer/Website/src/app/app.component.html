@@ -7,9 +7,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="alert alert-primary" role="alert">
-        This is a primary alert—check it out!
-      </div>
+      <input class="form-control" placeholder="Enter String to Send" id="text" type="text" [(ngModel)]="string"/>
     </div>
     <div class="col" id="result">
       <button type="button" class="btn btn-info" (click)="test()">Test service</button>
