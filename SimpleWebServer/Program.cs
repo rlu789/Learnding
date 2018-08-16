@@ -218,7 +218,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        string myFolder = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\website";
+        string myFolder = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\prod";
         Console.WriteLine(myFolder);
         SimpleHTTPServer myServer;
 
