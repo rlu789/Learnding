@@ -130,39 +130,88 @@ public class SimpleHTTPServer
         _listener.Stop();
     }
 
+    private IDictionary<string, string> ConvertRequestToDict(string request)
+    {
+        IDictionary<string, string> convertedData = new Dictionary<string, string>();
+        string key = "";
+        string value = "";
+        // data is either the key value or the data value
+        bool isKey = true;
+        foreach (char s in request)
+        {
+            if (s == '=')
+            {
+                isKey = false;
+                continue;
+            }
+            if (s == '&')
+            {
+                convertedData.Add(key, value);
+                isKey = true;
+                key = "";
+                value = "";
+                continue;
+            }
+            if (isKey) key += s;
+            if (!isKey) value += s;
+        }
+        // add the last key val pair
+        convertedData.Add(key, value);
+        return convertedData;
+    }
+
+    private string ConvertResponseToJSONString(IDictionary<string, string> response)
+    {
+        string ret = "{";
+        foreach (KeyValuePair<string, string> entry in response)
+        {
+            // do something with entry.Value or entry.Key
+            ret += "\"" + entry.Key + "\":\"" + entry.Value + "\",";
+        }
+        ret = ret.Remove(ret.Length - 1);
+        ret += "}";
+        return ret;
+    }
+
     private void Listen()
     {
         _listener = new HttpListener();
         _listener.Prefixes.Add("http://localhost:" + _port.ToString() + "/");
         _listener.Start();
-        while (true)
+        while (_listener.IsListening)
         {
-            HttpListenerContext context = _listener.GetContext();
-            try
+            ThreadPool.QueueUserWorkItem(c =>
             {
-                if (context.Request.HasEntityBody)
+                HttpListenerContext context = c as HttpListenerContext;
+                try
                 {
-                    Console.WriteLine("Request Made");
+                    if (context.Request.HasEntityBody)
+                    {
+                        Console.WriteLine("Request Made");
 
-                    Stream body = context.Request.InputStream;
-                    Encoding encoding = context.Request.ContentEncoding;
-                    StreamReader reader = new System.IO.StreamReader(body, encoding);
+                        Stream body = context.Request.InputStream;
+                        Encoding encoding = context.Request.ContentEncoding;
+                        StreamReader reader = new System.IO.StreamReader(body, encoding);
 
-                    string data = reader.ReadToEnd();
-                    var buf = Encoding.UTF8.GetBytes(data);
-                    context.Response.ContentLength64 = buf.Length;
-                    context.Response.OutputStream.Write(buf, 0, buf.Length);
-                    context.Response.OutputStream.Close();
+                        string data = reader.ReadToEnd();
+                        IDictionary<string, string> convertedData = ConvertRequestToDict(data);
+                        string response = ConvertResponseToJSONString(convertedData);
+
+                        var buf = Encoding.UTF8.GetBytes(response);
+                        context.Response.ContentLength64 = buf.Length;
+                        context.Response.OutputStream.Write(buf, 0, buf.Length);
+                        context.Response.OutputStream.Close();
+                    }
+                    else
+                    {
+                        Process(context);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Process(context);
-                }
-            }
-            catch (Exception ex)
-            {
 
-            }
+                }
+            }, _listener.GetContext());
         }
     }
 

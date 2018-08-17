@@ -25,9 +25,8 @@ export class AppComponent {
       },
       url: 'http://localhost:8080/',
     })
-      .always(function (response) {
+      .done(function (response) {
         console.log(response);
-        console.log(response.responseText);
       });
   }
 }
