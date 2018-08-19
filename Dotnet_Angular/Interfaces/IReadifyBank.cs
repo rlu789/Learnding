@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Dotnet_Angular
+namespace Dotnet_Angular.Interfaces
 {
     /// <summary>
     /// Readify Bank interface
@@ -17,7 +17,7 @@ namespace Dotnet_Angular
         /// <summary>
         /// Transactions log of the bank
         /// </summary>
-        //IList<IStatementRow> TransactionLog { get; }
+        IList<IStatementRow> TransactionLog { get; }
 
         /// <summary>
         /// Open a home loan account
@@ -42,7 +42,7 @@ namespace Dotnet_Angular
         /// <param name="amount">Deposit amount</param>
         /// <param name="description">Description of the transaction</param>
         /// <param name="depositDate">The date of the transaction</param>
-        //void PerformDeposit(IAccount account, decimal amount, string description, DateTimeOffset depositDate);
+        void PerformDeposit(IAccount account, decimal amount, string description, DateTimeOffset depositDate);
 
         /// <summary>
         /// Withdraw amount in an account

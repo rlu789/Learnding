@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Dotnet_Angular.Interfaces;
 
-namespace Dotnet_Angular
+namespace Dotnet_Angular.Classes
 {
     public class Account : IAccount
     {

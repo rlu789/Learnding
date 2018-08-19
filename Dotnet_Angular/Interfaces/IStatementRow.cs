@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dotnet_Angular
+namespace Dotnet_Angular.Interfaces
 {
     /// <summary>
     /// Statement Row represents a single row in the bank statement

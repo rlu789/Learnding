@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -8,20 +8,53 @@ import * as $ from 'jquery';
 })
 export class AccountsComponent implements OnInit {
   accounts: any[];
+  logs: any[];
   loading = true;
+  @ViewChildren('numberInputs') numberInputs;
 
   constructor() { }
 
   ngOnInit() {
     var self = this;
+    var bank = function (self) {
+      return $.ajax({
+        type: 'GET',
+        contentType: "application/json",
+        url: 'api/bank',
+      })
+        .done(function (response) {
+          self.accounts = response;
+        });
+    };
+
+    var log = function (self) {
+      return $.ajax({
+        type: 'GET',
+        contentType: "application/json",
+        url: 'api/bank/log',
+      })
+        .done(function (response) {
+          self.logs = response;
+        });;
+    };
+
+    Promise.all([bank(self), log(self)]).then(function () {
+      self.loading = false;
+    })
+  }
+
+  deposit(index) {
+    var self = this;
+    var acc = self.accounts[index];
+    acc.balance += +this.numberInputs.toArray()[index].nativeElement.value;
+    //var body = { id: self.accounts[index].accountNumber, amount: +this.numberInputs.toArray()[index].nativeElement.value};
     $.ajax({
-      type: 'GET',
-      contentType: "application/json",
-      url: 'api/bank',
-      success: function (response) {
-        self.accounts = response;
-        console.log(self.accounts);
-        self.loading = false;
+      url: "api/bank/deposit",
+      type: 'PUT',
+      accepts: 'application/json',
+      contentType: 'application/json',
+      data: JSON.stringify(acc),
+      success: function (result) {
       }
     });
   }

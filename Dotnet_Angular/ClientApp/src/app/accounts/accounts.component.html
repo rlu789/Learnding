@@ -8,18 +8,30 @@
     </div>
   </div>
   <div class="row" *ngIf="!loading">
-    <mat-accordion style="width: 100%" class="mat-headers-align">
-      <mat-expansion-panel *ngFor="let account of accounts">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{account.customerName}}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{account.accountNumber}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+    <div class="col">
+      <mat-accordion style="width: 100%" class="mat-headers-align">
+        <mat-expansion-panel *ngFor="let account of accounts; index as i">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{account.customerName}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{account.accountNumber}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field style="width:100%">
+            <input matInput placeholder="Enter an Amount" type="number" #numberInputs>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="deposit(i)">Deposit</button>
 
-      </mat-expansion-panel>
-    </mat-accordion>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="col">
+      <h2>Transaction Logs</h2>
+      <div *ngFor="let log of logs">
+        test
+      </div>
+    </div>
   </div>
 </div>
