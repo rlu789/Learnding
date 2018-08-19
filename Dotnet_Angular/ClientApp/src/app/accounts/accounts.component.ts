@@ -12,13 +12,9 @@ export class AccountsComponent implements OnInit {
 
   ngOnInit() {
     $.ajax({
-      type: 'post',
-      contentType: "application/json; charset=utf-8",
-      dataType: 'json',
-      data: {
-        request: "getAccountList"
-      },
-      url: 'http://localhost:8080/',
+      type: 'GET',
+      contentType: "application/json",
+      url: 'api/bank',
     })
       .done(function (response) {
         console.log(response);

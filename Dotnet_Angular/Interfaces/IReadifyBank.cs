@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace ReadifyBank.Interfaces
+namespace Dotnet_Angular
 {
     /// <summary>
     /// Readify Bank interface

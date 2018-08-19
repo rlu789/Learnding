@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReadifyBank.Interfaces
+namespace Dotnet_Angular
 {
     /// <summary>
     /// Statement Row represents a single row in the bank statement

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReadifyBank.Interfaces
+namespace Dotnet_Angular
 {
     /// <summary>
     /// Readify Bank IAccount Interface

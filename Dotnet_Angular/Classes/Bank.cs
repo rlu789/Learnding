@@ -1,27 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ReadifyBank.Interfaces
+namespace Dotnet_Angular
 {
     public class Bank : IReadifyBank
     {
-        private class Account : IAccount
-        {
-            public Account(string customerName, DateTimeOffset openDate)
-            {
-                OpenedDate = openDate;
-                CustomerName = customerName;
-                Balance = 0;
-            }
-
-            public DateTimeOffset OpenedDate { get; set; }
-            public string CustomerName { get; set; }
-            public string AccountNumber { get; set; }
-            public decimal Balance { get; set; }
-        }
-
-
-
         private int savingsAccountNumber;
         private int loanAccountNumber;
         public IList<IAccount> AccountList { get; private set; }
@@ -30,6 +13,8 @@ namespace ReadifyBank.Interfaces
             savingsAccountNumber = 0;
             loanAccountNumber = 0;
             AccountList = new List<IAccount>();
+            AccountList.Add(OpenHomeLoanAccount("Mr Loan", DateTimeOffset.Now));
+            AccountList.Add(OpenSavingsAccount("Mr Savings", DateTimeOffset.Now));
         }
 
         public IAccount OpenHomeLoanAccount(string customerName, DateTimeOffset openDate)
