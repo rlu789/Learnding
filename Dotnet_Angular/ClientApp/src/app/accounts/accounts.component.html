@@ -1,3 +1,25 @@
-<p>
-  accounts works!
-</p>
+<div class="container">
+  <div class="row" *ngIf="loading">
+    <div style="
+      display: block;
+    margin-left: auto;
+    margin-right: auto;">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+  <div class="row" *ngIf="!loading">
+    <mat-accordion style="width: 100%" class="mat-headers-align">
+      <mat-expansion-panel *ngFor="let account of accounts">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{account.customerName}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{account.accountNumber}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

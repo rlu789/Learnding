@@ -7,18 +7,23 @@ import * as $ from 'jquery';
   styleUrls: ['./accounts.component.css']
 })
 export class AccountsComponent implements OnInit {
+  accounts: any[];
+  loading = true;
 
   constructor() { }
 
   ngOnInit() {
+    var self = this;
     $.ajax({
       type: 'GET',
       contentType: "application/json",
       url: 'api/bank',
-    })
-      .done(function (response) {
-        console.log(response);
-      });
+      success: function (response) {
+        self.accounts = response;
+        console.log(self.accounts);
+        self.loading = false;
+      }
+    });
   }
 
 }

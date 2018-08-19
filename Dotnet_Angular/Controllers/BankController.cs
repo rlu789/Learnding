@@ -15,6 +15,7 @@ namespace Dotnet_Angular.Controllers
         [HttpGet]
         public ActionResult<IList<IAccount>> GetAll()
         {
+            System.Threading.Thread.Sleep(1000);
             return bank.AccountList.ToList();
         }
 
