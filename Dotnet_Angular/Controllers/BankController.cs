@@ -13,7 +13,17 @@ namespace Dotnet_Angular.Controllers
     [ApiController]
     public class BankController : Controller
     {
-        private Bank bank = new Bank();
+        public class PutBody
+        {
+            public Account acc { get; set; }
+            public decimal amount { get; set; }
+            public string desc { get; set; }
+        }
+
+        private Bank bank;
+        public BankController() {
+            bank = new Bank();
+        }   
 
         [HttpGet]
         public ActionResult<IList<IAccount>> GetAll()
@@ -30,9 +40,10 @@ namespace Dotnet_Angular.Controllers
         }
 
         [HttpPut("deposit")]
-        public IActionResult Deposit(Account acc)
+        public ActionResult<IList<IStatementRow>> Deposit(PutBody body)
         {
-            return NoContent();
+            bank.PerformDeposit(body.acc, body.amount, body.desc, DateTimeOffset.Now);
+            return bank.TransactionLog.ToList();
         }
 
 

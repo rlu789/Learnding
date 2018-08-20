@@ -11,6 +11,7 @@ export class AccountsComponent implements OnInit {
   logs: any[];
   loading = true;
   @ViewChildren('numberInputs') numberInputs;
+  @ViewChildren('descInputs') descInputs;
 
   constructor() { }
 
@@ -45,18 +46,21 @@ export class AccountsComponent implements OnInit {
 
   deposit(index) {
     var self = this;
-    var acc = self.accounts[index];
-    acc.balance += +this.numberInputs.toArray()[index].nativeElement.value;
-    //var body = { id: self.accounts[index].accountNumber, amount: +this.numberInputs.toArray()[index].nativeElement.value};
+    var data = {
+      acc: self.accounts[index],
+      amount: +this.numberInputs.toArray()[index].nativeElement.value,
+      desc: this.descInputs.toArray()[index].nativeElement.value
+    };
     $.ajax({
       url: "api/bank/deposit",
       type: 'PUT',
       accepts: 'application/json',
       contentType: 'application/json',
-      data: JSON.stringify(acc),
-      success: function (result) {
-      }
-    });
+      data: JSON.stringify(data),
+    })
+      .done(function (result) {
+        console.log(result);
+      });
   }
 
 }

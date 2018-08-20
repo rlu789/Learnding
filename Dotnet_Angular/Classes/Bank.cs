@@ -52,7 +52,7 @@ namespace Dotnet_Angular.Classes
 
         public void PerformDeposit(IAccount account, decimal amount, string description, DateTimeOffset depositDate)
         {
-            Account acc = (Account)AccountList.Cast<object>().SingleOrDefault(i => i == account);
+            Account acc = AccountList.Cast<Account>().SingleOrDefault(i => i.AccountNumber == account.AccountNumber);
             acc.Balance += amount;
             TransactionLog.Add(new StatementRow(acc, depositDate, amount, acc.Balance, description));
         }
