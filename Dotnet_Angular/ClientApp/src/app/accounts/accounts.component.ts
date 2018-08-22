@@ -17,31 +17,39 @@ export class AccountsComponent implements OnInit {
 
   ngOnInit() {
     var self = this;
-    var bank = function (self) {
-      return $.ajax({
-        type: 'GET',
-        contentType: "application/json",
-        url: 'api/bank',
-      })
-        .done(function (response) {
-          self.accounts = response;
-        });
-    };
-
-    var log = function (self) {
-      return $.ajax({
-        type: 'GET',
-        contentType: "application/json",
-        url: 'api/bank/log',
-      })
-        .done(function (response) {
-          self.logs = response;
-        });;
-    };
-
-    Promise.all([bank(self), log(self)]).then(function () {
-      self.loading = false;
+    $.ajax({
+      url: "api/bank/init",
+      type: 'PUT',
+      accepts: 'application/json'
     })
+      .done(function () {
+        var bank = function (self) {
+          return $.ajax({
+            type: 'GET',
+            contentType: "application/json",
+            url: 'api/bank',
+          })
+            .done(function (response) {
+              self.accounts = response;
+            });
+        };
+
+        var log = function (self) {
+          return $.ajax({
+            type: 'GET',
+            contentType: "application/json",
+            url: 'api/bank/log',
+          })
+            .done(function (response) {
+              self.logs = response;
+            });;
+        };
+
+        Promise.all([bank(self), log(self)]).then(function () {
+          self.loading = false;
+        })
+      });
+    
   }
 
   deposit(index) {
@@ -60,6 +68,8 @@ export class AccountsComponent implements OnInit {
     })
       .done(function (result) {
         console.log(result);
+        self.accounts[index].balance = result[result.length - 1].balance;
+        self.logs = result;
       });
   }
 

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Dotnet_Angular.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Dotnet_Angular.Interfaces
+namespace Dotnet_Angular.Classes
 {
     /// <summary>
     /// Readify Bank interface

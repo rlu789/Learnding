@@ -7,13 +7,21 @@
       <mat-spinner></mat-spinner>
     </div>
   </div>
-  <div class="row" *ngIf="!loading">
-    <div class="col">
+  <div class="row" style="padding-bottom:20px" *ngIf="!loading">
+    <div class="col-6">
+      <mat-form-field style="width:100%">
+        <input matInput placeholder="Enter Customer Name">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addSavings()">Add Savings Account</button>
+      <button mat-raised-button color="primary" (click)="addLoan()">Add Home Loan Account</button>
+      <div class="row">
+        <br />
+      </div>
       <mat-accordion style="width: 100%" class="mat-headers-align">
         <mat-expansion-panel *ngFor="let account of accounts; index as i">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{account.customerName}}
+              ${{account.balance}} - {{account.customerName}}
             </mat-panel-title>
             <mat-panel-description>
               {{account.accountNumber}}
@@ -30,7 +38,7 @@
         </mat-expansion-panel>
       </mat-accordion>
     </div>
-    <div class="col">
+    <div class="col-6">
       <h2>Transaction Logs</h2>
       <div *ngFor="let log of logs">
         test

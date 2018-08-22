@@ -3,8 +3,10 @@ using Dotnet_Angular.Interfaces;
 
 namespace Dotnet_Angular.Classes
 {
-    public class Account : IAccount
+    public class Account : IAccount 
     {
+        public int Id { get; set; } // for database purposed only
+        public Account() { }
         public Account(string customerName, DateTimeOffset openDate)
         {
             OpenedDate = openDate;

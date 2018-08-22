@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dotnet_Angular.Interfaces
+namespace Dotnet_Angular.Classes
 {
     /// <summary>
     /// Statement Row represents a single row in the bank statement
@@ -11,7 +11,7 @@ namespace Dotnet_Angular.Interfaces
         /// <summary>
         /// Account on which the transaction is made
         /// </summary>
-        IAccount Account { get; }
+        Account Account { get; }
 
         /// <summary>
         /// Date and time of the transaction

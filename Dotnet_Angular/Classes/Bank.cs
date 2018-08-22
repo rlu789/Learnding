@@ -7,24 +7,12 @@ namespace Dotnet_Angular.Classes
 {
     public class Bank : IReadifyBank
     {
-        private int savingsAccountNumber;
-        private int loanAccountNumber;
-        public IList<IAccount> AccountList { get; private set; }
-        public IList<IStatementRow> TransactionLog { get; private set; }
-        public Bank()
-        {
-            savingsAccountNumber = 1;
-            loanAccountNumber = 1;
-            AccountList = new List<IAccount>();
-            TransactionLog = new List<IStatementRow>();
-            CreateMockData();
-        }
+        public int Id { get; set; } // for database purposed only
 
-        private void CreateMockData()
-        {
-            AccountList.Add(OpenHomeLoanAccount("Mr Loan", DateTimeOffset.Now));
-            AccountList.Add(OpenSavingsAccount("Mr Savings", DateTimeOffset.Now));
-        }
+        private int savingsAccountNumber = 1;
+        private int loanAccountNumber = 1;
+        public IList<IAccount> AccountList { get; set; }
+        public IList<IStatementRow> TransactionLog { get; set; }
 
         private string CreateAccountNumber(string prefix)
         {
