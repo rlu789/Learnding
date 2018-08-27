@@ -45,14 +45,14 @@ namespace Dotnet_Angular.Controllers
         [HttpGet]
         public ActionResult<IList<Account>> GetAll()
         {
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(200);
             return _context.AccountList.ToArray();
         }
 
         [HttpGet("log")]
         public ActionResult<IList<StatementRow>> GetLog()
         {
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(200);
             return _context.TransactionLog.ToArray();
         }
 
@@ -76,6 +76,14 @@ namespace Dotnet_Angular.Controllers
         public ActionResult<IList<StatementRow>> Deposit(DespositBodyContent body)
         {
             _context.PerformDeposit(body.acc, body.amount, body.desc, DateTimeOffset.Now);
+            _context.SaveChanges();
+            return _context.TransactionLog.ToList();
+        }
+
+        [HttpPut("withdraw")]
+        public ActionResult<IList<StatementRow>> Withdraw(DespositBodyContent body)
+        {
+            _context.PerformWithdrawal(body.acc, body.amount, body.desc, DateTimeOffset.Now);
             _context.SaveChanges();
             return _context.TransactionLog.ToList();
         }

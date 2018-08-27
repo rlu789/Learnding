@@ -53,10 +53,18 @@ namespace Dotnet_Angular.Controllers
 
         public void PerformDeposit(Account account, decimal amount, string description, DateTimeOffset depositDate)
         {
-            Account acc = AccountList.Find(account.Id);
+            Account acc = AccountList.Find(account.AccountNumber);
             acc.Balance += amount;
             AccountList.Update(acc);
             TransactionLog.Add(new StatementRow(acc, depositDate, amount, acc.Balance, description));
+        }
+
+        public void PerformWithdrawal(Account account, decimal amount, string description, DateTimeOffset withdrawalDate)
+        {
+            Account acc = AccountList.Find(account.AccountNumber);
+            acc.Balance -= amount;
+            AccountList.Update(acc);
+            TransactionLog.Add(new StatementRow(acc, withdrawalDate, amount, acc.Balance, description));
         }
     }
 }

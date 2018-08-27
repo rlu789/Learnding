@@ -73,4 +73,25 @@ export class AccountsComponent implements OnInit {
       });
   }
 
+  withdraw(index) {
+    var self = this;
+    var data = {
+      acc: self.accounts[index],
+      amount: +this.numberInputs.toArray()[index].nativeElement.value,
+      desc: this.descInputs.toArray()[index].nativeElement.value
+    };
+    $.ajax({
+      url: "api/bank/withdraw",
+      type: 'PUT',
+      accepts: 'application/json',
+      contentType: 'application/json',
+      data: JSON.stringify(data),
+    })
+      .done(function (result) {
+        console.log(result);
+        self.accounts[index].balance = result[result.length - 1].balance;
+        self.logs = result;
+      });
+  }
+
 }
