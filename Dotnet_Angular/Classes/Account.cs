@@ -1,10 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Dotnet_Angular.Interfaces;
 
 namespace Dotnet_Angular.Classes
 {
-    public class Account : IAccount 
+    public class Account 
     {
         public Account() { }
         public Account(string customerName, DateTimeOffset openDate)

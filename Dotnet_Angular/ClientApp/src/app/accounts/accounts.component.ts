@@ -17,39 +17,43 @@ export class AccountsComponent implements OnInit {
 
   ngOnInit() {
     var self = this;
+    var bank = function (self) {
+      return $.ajax({
+        type: 'GET',
+        contentType: "application/json",
+        url: 'api/bank',
+      })
+        .done(function (response) {
+          self.accounts = response;
+        });
+    };
+
+    var log = function (self) {
+      return $.ajax({
+        type: 'GET',
+        contentType: "application/json",
+        url: 'api/bank/log',
+      })
+        .done(function (response) {
+          self.logs = response;
+        });;
+    };
+
+    Promise.all([bank(self), log(self)]).then(function () {
+      self.loading = false;
+    })
+  }
+
+  createBankData() {
+    var self = this;
     $.ajax({
       url: "api/bank/init",
       type: 'PUT',
       accepts: 'application/json'
     })
-      .done(function () {
-        var bank = function (self) {
-          return $.ajax({
-            type: 'GET',
-            contentType: "application/json",
-            url: 'api/bank',
-          })
-            .done(function (response) {
-              self.accounts = response;
-            });
-        };
-
-        var log = function (self) {
-          return $.ajax({
-            type: 'GET',
-            contentType: "application/json",
-            url: 'api/bank/log',
-          })
-            .done(function (response) {
-              self.logs = response;
-            });;
-        };
-
-        Promise.all([bank(self), log(self)]).then(function () {
-          self.loading = false;
-        })
-      });
-    
+      .done(function (response) {
+        self.accounts = response;
+      })
   }
 
   deposit(index) {

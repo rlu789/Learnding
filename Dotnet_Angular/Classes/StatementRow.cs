@@ -1,9 +1,8 @@
 ﻿using System;
-using Dotnet_Angular.Interfaces;
 
 namespace Dotnet_Angular.Classes
 {
-    public class StatementRow : IStatementRow
+    public class StatementRow
     {
         public int Id { get; set; } // for database purposed only
         public StatementRow() { }

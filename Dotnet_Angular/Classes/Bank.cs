@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dotnet_Angular.Interfaces;
 
 namespace Dotnet_Angular.Classes
 {
-    public class Bank : IReadifyBank
+    public class Bank
     {
         public int Id { get; set; } // for database purposed only
 
         private int savingsAccountNumber = 1;
         private int loanAccountNumber = 1;
-        public IList<IAccount> AccountList { get; set; }
-        public IList<IStatementRow> TransactionLog { get; set; }
+        public IList<Account> AccountList { get; set; }
+        public IList<StatementRow> TransactionLog { get; set; }
 
         private string CreateAccountNumber(string prefix)
         {
@@ -25,20 +24,20 @@ namespace Dotnet_Angular.Classes
             return prefix + num;
         }
 
-        public IAccount OpenHomeLoanAccount(string customerName, DateTimeOffset openDate)
+        public Account OpenHomeLoanAccount(string customerName, DateTimeOffset openDate)
         {
             Account loanAccount = new Account(customerName, openDate);
             loanAccount.AccountNumber = CreateAccountNumber("LN-");
             return loanAccount;
         }
-        public IAccount OpenSavingsAccount(string customerName, DateTimeOffset openDate)
+        public Account OpenSavingsAccount(string customerName, DateTimeOffset openDate)
         {
             Account savingsAccount = new Account(customerName, openDate);
             savingsAccount.AccountNumber = CreateAccountNumber("SV-");
             return savingsAccount;
         }
 
-        public void PerformDeposit(IAccount account, decimal amount, string description, DateTimeOffset depositDate)
+        public void PerformDeposit(Account account, decimal amount, string description, DateTimeOffset depositDate)
         {
             Account acc = AccountList.Cast<Account>().SingleOrDefault(i => i.AccountNumber == account.AccountNumber);
             acc.Balance += amount;

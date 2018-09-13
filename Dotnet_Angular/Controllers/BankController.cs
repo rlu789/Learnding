@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-using Dotnet_Angular.Interfaces;
 using Dotnet_Angular.Classes;
 
 namespace Dotnet_Angular.Controllers
@@ -35,11 +34,9 @@ namespace Dotnet_Angular.Controllers
         [HttpPut("init")]
         public ActionResult<IList<Account>> Init()
         {
-            if (_context.AccountList.Count() == 0) { 
-                _context.CreateMockData();
-                _context.SaveChanges();
-            }
-            return NoContent();
+            _context.CreateMockData();
+            _context.SaveChanges();
+            return _context.AccountList.ToArray();
         }
 
         [HttpGet]
