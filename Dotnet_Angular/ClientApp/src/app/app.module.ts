@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { RouterModule, Routes } from '@angular/router';
 
+import { ExercisesService } from './Services/exercises.service';
+import { HttpClientModule } from '@angular/common/http';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule, MatInputModule, MatButtonModule, MatExpansionModule, MatProgressSpinnerModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AccountsComponent } from './accounts/accounts.component';
-import { ExercisesComponent } from './exercises/exercises.component';
-import { ExerciseComponent } from './components/exercise-component/exercise-component.component';
+import { HomeComponent } from './Pages/home/home.component';
+import { AccountsComponent } from './Pages/accounts/accounts.component';
+import { ExercisesComponent } from './Pages/exercises/exercises.component';
+import { ExerciseComponent } from './Components/exercise-component/exercise-component.component';
 
 const appRoutes: Routes = [
   {
@@ -39,6 +42,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule, ReactiveFormsModule,
+    HttpClientModule,
 
     MatFormFieldModule,
     MatInputModule,
@@ -46,7 +50,9 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    ExercisesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

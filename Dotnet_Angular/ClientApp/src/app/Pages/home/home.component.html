@@ -1,13 +1,13 @@
-
 <div class="container">
   <div class="row">
     <div class="col">
       <mat-form-field style="width:100%">
-        <input matInput placeholder="Enter String to Send">
+        <input matInput placeholder="Enter A Number To Send" [(ngModel)]=duration>
       </mat-form-field>
       <button mat-raised-button color="primary" (click)="test()">Test service</button>
     </div>
     <div class="col">
+      <p>{{result}}</p>
     </div>
   </div>
 </div>

@@ -12,7 +12,7 @@ namespace Dotnet_Angular.Controllers
         public static int loanAccountNumber = 1;
     }
 
-    public class BankContext : DbContext//, IReadifyBank
+    public class BankContext : DbContext
     {
         public BankContext(DbContextOptions<BankContext> options)
             : base(options)
