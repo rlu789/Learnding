@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ExercisesService } from '../../Services/exercises.service';
-import * as $ from 'jquery';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

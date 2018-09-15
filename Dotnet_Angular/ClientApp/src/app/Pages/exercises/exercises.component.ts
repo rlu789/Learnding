@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exercises.component.css']
 })
 export class ExercisesComponent implements OnInit {
+  reverseString = {
+    name: 'Reverse String',
+    apiPath: '/reverse',
+    payload: ''
+  };
 
   constructor() { }
 

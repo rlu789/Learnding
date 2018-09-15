@@ -13,6 +13,16 @@ namespace Dotnet_Angular.Controllers
     [ApiController]
     public class ExercisesController : ControllerBase
     {
+        public struct StringResult
+        {
+            public string duration;
+            public string result;
+            public StringResult(string duration, string result)
+            {
+                this.duration = duration;
+                this.result = result;
+            }
+        }
 
         [HttpPost("test")]
         public string Test([FromBody] int duration)
@@ -23,6 +33,20 @@ namespace Dotnet_Angular.Controllers
             stopwatch.Stop();
 
             return stopwatch.Elapsed.ToString();
+        }
+
+        [HttpPost("reverse")]
+        public StringResult Reverse([FromBody] string word)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            char[] arr = word.ToCharArray();
+            Array.Reverse(arr);
+            string result = new string(arr);
+
+            stopwatch.Stop();
+            return new StringResult(stopwatch.Elapsed.ToString(), result);
         }
 
     }

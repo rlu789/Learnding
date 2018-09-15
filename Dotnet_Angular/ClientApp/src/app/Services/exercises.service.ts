@@ -15,4 +15,9 @@ export class ExercisesService {
   public test(duration) {
     return this.http.post(this.accessPointUrl + '/test', duration, { headers: this.headers, responseType: 'text' });
   }
+
+  public exercise(apiPath, payload) {
+    // commas around payload necessary as apiController expects a JSON format because of [FromBody] attr
+    return this.http.post(this.accessPointUrl + apiPath, "'" + payload + "'", { headers: this.headers });
+  }
 }
