@@ -1,11 +1,15 @@
 <div class="row" style="padding-bottom:20px" *ngIf="!loading">
   <div class="col-6">
+    <h3>{{name}}</h3>
     <mat-form-field style="width:100%">
-      <input matInput placeholder="Input" [(ngModel)]=params.payload>
+      <input matInput placeholder="Input" [(ngModel)]=payload>
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="send()">Send</button>
   </div>
   <div class="col-6">
-    <h2>Result</h2>
+    <h3>Result</h3>
+    <p>{{result}}</p>
+    <p>{{duration}}</p>
   </div>
 </div>
+<hr />

@@ -1,3 +1,5 @@
 <div class="container">
-  <app-exercise-component [params] = "reverseString"></app-exercise-component>
+  <div *ngFor="let e of exercises">
+    <app-exercise-component [name]="e.name" [apiPath]="e.apiPath" [payload]="e.payload"></app-exercise-component>
+  </div>
 </div>
