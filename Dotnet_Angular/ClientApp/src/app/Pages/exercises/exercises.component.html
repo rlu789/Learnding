@@ -1,5 +1,5 @@
 <div class="container">
   <div *ngFor="let e of exercises">
-    <app-exercise-component [name]="e.name" [apiPath]="e.apiPath" [payload]="e.payload"></app-exercise-component>
+    <app-exercise-component [name]="e.name" [desc]="e.desc" [buttons]="e.buttons" [payload]="e.payload" [inputType]="e.inputType"></app-exercise-component>
   </div>
 </div>

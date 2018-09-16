@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Dotnet_Angular.Classes;
 
 namespace Dotnet_Angular.Controllers
 {
@@ -17,6 +17,7 @@ namespace Dotnet_Angular.Controllers
         {
             public string duration;
             public string result;
+            //public long memoryUsed;
             public StringResult(string duration, string result)
             {
                 this.duration = duration;
@@ -49,5 +50,23 @@ namespace Dotnet_Angular.Controllers
             return new StringResult(stopwatch.Elapsed.ToString(), result);
         }
 
+        [HttpPost("fib")]
+        public StringResult Fib([FromBody] int num)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            int res = Exercises.Fib(num);
+            stopwatch.Stop();
+            return new StringResult(stopwatch.Elapsed.ToString(), res.ToString());
+        }
+        [HttpPost("fibRecursive")]
+        public StringResult FibRecursive([FromBody] int num)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            int res = Exercises.FibRecursive(num);
+            stopwatch.Stop();
+            return new StringResult(stopwatch.Elapsed.ToString(), res.ToString());
+        }
     }
 }

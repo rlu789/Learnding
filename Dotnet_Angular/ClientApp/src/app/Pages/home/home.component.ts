@@ -8,7 +8,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  duration: string;
+  duration: number;
   result: string
   constructor(private exercisesService: ExercisesService) { }
 

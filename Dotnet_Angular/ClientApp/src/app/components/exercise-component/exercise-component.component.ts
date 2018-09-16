@@ -10,22 +10,24 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class ExerciseComponent implements OnInit {
   @Input('name') name: string;
   @Input('desc') desc: string;
-  @Input('apiPath') apiPath: string;
+  @Input('buttons') buttons: { apiPath: string, text: string}[];
   @Input('payload') payload: string;
+  @Input('inputType') inputType: string;
 
   result: string;
-  duration: string
+  duration: string;
+  memoryUsed: string;
 
   constructor(private exercisesService: ExercisesService) { }
 
   ngOnInit() {
   }
 
-  send() {
-    this.exercisesService.exercise('/reverse', this.payload).subscribe(
+  send(i: number) {
+    this.exercisesService.exercise(this.buttons[i].apiPath, this.payload).subscribe(
       (data: any) => {
-        this.result = data.result
-        this.duration = data.duration
+        this.result = data.result;
+        this.duration = data.duration;
       },
       (err: HttpErrorResponse) => {
         console.log(err.error);

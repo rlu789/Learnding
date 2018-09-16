@@ -12,11 +12,11 @@ export class ExercisesService {
     this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   }
 
-  public test(duration) {
+  public test(duration: number) {
     return this.http.post(this.accessPointUrl + '/test', duration, { headers: this.headers, responseType: 'text' });
   }
 
-  public exercise(apiPath, payload) {
+  public exercise(apiPath: string, payload: string | {}) {
     // commas around payload necessary as apiController expects a JSON format because of [FromBody] attr
     return this.http.post(this.accessPointUrl + apiPath, "'" + payload + "'", { headers: this.headers });
   }
