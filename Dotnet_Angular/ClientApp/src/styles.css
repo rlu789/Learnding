@@ -23,3 +23,7 @@
   border-top-color: #333;
   animation: spinner .6s linear infinite;
 }
+
+.jumbotron{
+  padding: 2rem 2rem;
+}

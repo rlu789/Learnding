@@ -13,6 +13,13 @@ namespace Dotnet_Angular.Controllers
     [ApiController]
     public class ExercisesController : ControllerBase
     {
+        private static StringResult Execute<T>(Func<T> func)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            var result = func();
+            return new StringResult(stopwatch.Elapsed.ToString(), result.ToString());
+        }
+        
         public struct StringResult
         {
             public string duration;
@@ -23,17 +30,6 @@ namespace Dotnet_Angular.Controllers
                 this.duration = duration;
                 this.result = result;
             }
-        }
-
-        [HttpPost("test")]
-        public string Test([FromBody] int duration)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            Thread.Sleep(duration * 1000);
-            stopwatch.Stop();
-
-            return stopwatch.Elapsed.ToString();
         }
 
         [HttpPost("reverse")]
@@ -51,22 +47,25 @@ namespace Dotnet_Angular.Controllers
         }
 
         [HttpPost("fib")]
-        public StringResult Fib([FromBody] int num)
+        public StringResult Fib([FromBody] long num)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            int res = Exercises.Fib(num);
-            stopwatch.Stop();
-            return new StringResult(stopwatch.Elapsed.ToString(), res.ToString());
+            return Execute(() => Exercises.Fib(num));
         }
         [HttpPost("fibRecursive")]
-        public StringResult FibRecursive([FromBody] int num)
+        public StringResult FibRecursive([FromBody] long num)
+        {
+            return Execute(() => Exercises.FibRecursive(num));
+        }
+
+        [HttpPost("test")]
+        public string Test([FromBody] int duration)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            int res = Exercises.FibRecursive(num);
+            Thread.Sleep(duration * 1000);
             stopwatch.Stop();
-            return new StringResult(stopwatch.Elapsed.ToString(), res.ToString());
+
+            return stopwatch.Elapsed.ToString();
         }
     }
 }

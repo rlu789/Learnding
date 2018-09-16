@@ -7,24 +7,25 @@ namespace Dotnet_Angular.Classes
 {
     public class Exercises
     {
-        public static int Fib(int num)
+        public static long Fib(long num)
         {
             if (num == 0) return 0;
             if (num == 1) return 1;
 
-            int cur = 0;
-            int next = 1;
-            int res = 0;
-            while (num-- - 2 >= 0)
+            long cur = 0;
+            long next = 1;
+            long res = 0;
+            while (num - 2 >= 0)
             {
                 res = cur + next;
                 cur = next;
                 next = res;
+                num -= 1;
             }
             return res;
         }
 
-        public static int FibRecursive(int num)
+        public static ulong FibRecursive(long num)
         {
             if (num == 0) return 0;
             if (num == 1) return 1;
