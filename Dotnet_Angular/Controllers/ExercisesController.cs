@@ -32,6 +32,12 @@ namespace Dotnet_Angular.Controllers
             }
         }
 
+        public class MultipleContent
+        {
+            public string p1 { get; set; }
+            public string p2 { get; set; }
+        }
+
         [HttpPost("reverse")]
         public StringResult Reverse([FromBody] string word)
         {
@@ -47,7 +53,7 @@ namespace Dotnet_Angular.Controllers
         }
 
         [HttpPost("fib")]
-        public StringResult Fib([FromBody] long num)
+        public StringResult Fib(long num)
         {
             return Execute(() => Exercises.Fib(num));
         }
@@ -55,6 +61,12 @@ namespace Dotnet_Angular.Controllers
         public StringResult FibRecursive([FromBody] long num)
         {
             return Execute(() => Exercises.FibRecursive(num));
+        }
+
+        [HttpPost("multiple")]
+        public MultipleContent Multiple([FromBody] MultipleContent m)
+        {
+            return m;
         }
 
         [HttpPost("test")]

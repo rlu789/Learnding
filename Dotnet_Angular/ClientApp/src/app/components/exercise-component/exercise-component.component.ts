@@ -11,8 +11,7 @@ export class ExerciseComponent implements OnInit {
   @Input('name') name: string;
   @Input('desc') desc: string;
   @Input('buttons') buttons: { apiPath: string, text: string, loading: boolean}[];
-  @Input('payload') payload: string;
-  @Input('inputType') inputType: string;
+  @Input('inputs') inputs: { payload: string, payloadName: string,inputType: string }[];
 
   result: string;
   duration: string;
@@ -25,8 +24,15 @@ export class ExerciseComponent implements OnInit {
 
   send(i: number) {
     this.buttons[i].loading = true;
-    this.exercisesService.exercise(this.buttons[i].apiPath, this.payload).subscribe(
+
+    var payload = {};
+    this.inputs.forEach((input) => {
+      payload[input.payloadName] = input.payload;
+    });
+
+    this.exercisesService.exercise(this.buttons[i].apiPath, payload).subscribe(
       (data: any) => {
+        console.log(data);
         this.result = data.result;
         this.duration = data.duration;
       },

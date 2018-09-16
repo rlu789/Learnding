@@ -2,9 +2,12 @@
   <div class="col-6">
     <h3>{{name}}</h3>
     <div *ngIf="desc"><p>{{desc}}</p></div>
-    <mat-form-field style="width:100%">
-      <input matInput placeholder="Input" [(ngModel)]=payload [type]=inputType>
-    </mat-form-field>
+    <div *ngFor="let input of inputs; index as i">
+      <mat-form-field style="width:100%">
+        <input matInput placeholder="Input" [(ngModel)]=input.payload [type]=input.inputType>
+      </mat-form-field>
+    </div>
+
     <div *ngFor="let button of buttons; index as i" class="side-by-side">
       <button mat-raised-button color="primary" (click)="send(i)" [disabled]="button.loading">
         <div *ngIf="!button.loading">
@@ -16,6 +19,7 @@
         </div>
       </button>
     </div>
+
   </div>
   <div class="col-6">
     <h3>Result</h3>

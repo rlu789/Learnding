@@ -8,6 +8,27 @@ import { Component, OnInit } from '@angular/core';
 export class ExercisesComponent implements OnInit {
   exercises = [
     {
+      name: 'Multiple Inputs Test',
+      buttons: [
+        {
+          text: 'Multiple',
+          apiPath: '/multiple',
+        }
+      ],
+      inputs: [
+        {
+          payload: '',
+          payloadName: 'p1',
+          inputType: 'text'
+        },
+        {
+          payload: '',
+          payloadName: 'p2',
+          inputType: 'text'
+        }
+      ],
+    },
+    {
       name: 'Reverse String',
       buttons: [
         {
@@ -15,8 +36,13 @@ export class ExercisesComponent implements OnInit {
           apiPath: '/reverse',
         }
       ],
-      payload: '',
-      inputType: 'text'
+      inputs: [
+        {
+          payload: '',
+          payloadName: 'reverse',
+          inputType: 'text'
+        }
+      ],
     },
     {
       name: 'Fibonacci',
@@ -31,8 +57,13 @@ export class ExercisesComponent implements OnInit {
           apiPath: '/fibRecursive',
         }
       ],
-      payload: '',
-      inputType: 'number'
+      inputs: [
+        {
+          payload: '',
+          payloadName: 'num',
+          inputType: 'number'
+        }
+      ],
     }
   ];
 

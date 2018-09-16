@@ -15,12 +15,11 @@ namespace Dotnet_Angular.Classes
             long cur = 0;
             long next = 1;
             long res = 0;
-            while (num - 2 >= 0)
+            while (num-- - 2 >= 0)
             {
                 res = cur + next;
                 cur = next;
                 next = res;
-                num -= 1;
             }
             return res;
         }
