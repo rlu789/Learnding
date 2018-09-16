@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class ExerciseComponent implements OnInit {
   @Input('name') name: string;
   @Input('desc') desc: string;
-  @Input('buttons') buttons: { apiPath: string, text: string}[];
+  @Input('buttons') buttons: { apiPath: string, text: string, loading: boolean}[];
   @Input('payload') payload: string;
   @Input('inputType') inputType: string;
 
@@ -24,16 +24,20 @@ export class ExerciseComponent implements OnInit {
   }
 
   send(i: number) {
+    this.buttons[i].loading = true;
     this.exercisesService.exercise(this.buttons[i].apiPath, this.payload).subscribe(
       (data: any) => {
         this.result = data.result;
         this.duration = data.duration;
       },
       (err: HttpErrorResponse) => {
+        this.buttons[i].loading = false;
         console.log(err.error);
         console.log(err.name);
         console.log(err.message);
         console.log(err.status);
-      });
+      },
+      () => { this.buttons[i].loading = false; }
+    );
   }
 }

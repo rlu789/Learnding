@@ -1,4 +1,4 @@
-<div class="row" style="padding-bottom:20px" *ngIf="!loading">
+<div class="row" style="padding-bottom:20px">
   <div class="col-6">
     <h3>{{name}}</h3>
     <div *ngIf="desc"><p>{{desc}}</p></div>
@@ -6,7 +6,15 @@
       <input matInput placeholder="Input" [(ngModel)]=payload [type]=inputType>
     </mat-form-field>
     <div *ngFor="let button of buttons; index as i" class="side-by-side">
-      <button mat-raised-button color="primary" (click)="send(i)">{{button.text}}</button>
+      <button mat-raised-button color="primary" (click)="send(i)" [disabled]="button.loading">
+        <div *ngIf="!button.loading">
+          {{button.text}}
+        </div>
+        <div *ngIf="button.loading">
+          &nbsp;
+          <div class="spinner"></div>
+        </div>
+      </button>
     </div>
   </div>
   <div class="col-6">

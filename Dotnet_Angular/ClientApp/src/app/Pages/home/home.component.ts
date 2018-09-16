@@ -9,13 +9,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   duration: number;
-  result: string
+  result: string;
+  loading = false;
   constructor(private exercisesService: ExercisesService) { }
 
   ngOnInit() {
   }
 
   test() {
+    this.loading = true;
     this.exercisesService.test(this.duration)
       .subscribe(
         (data: any) => this.result = data,
@@ -24,7 +26,9 @@ export class HomeComponent implements OnInit {
           console.log(err.name);
           console.log(err.message);
           console.log(err.status);
-        });
+        },
+        () => { this.loading = false; }
+      );
   }
 
 }

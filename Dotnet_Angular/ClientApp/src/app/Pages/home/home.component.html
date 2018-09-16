@@ -4,7 +4,15 @@
       <mat-form-field style="width:100%">
         <input matInput placeholder="Enter A Number To Send" [(ngModel)]=duration type="number">
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="test()">Test service</button>
+      <button mat-raised-button color="primary" (click)="test()" [disabled]="loading">
+        <div *ngIf="!loading">
+          Test service
+        </div>
+        <div *ngIf="loading">
+          &nbsp;
+          <div class="spinner"></div>
+        </div>
+      </button>
     </div>
     <div class="col">
       <p>{{result}}</p>
