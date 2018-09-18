@@ -1,7 +1,7 @@
 <div class="row" style="padding-bottom:20px">
   <div class="col-6">
     <h3>{{name}}</h3>
-    <div *ngIf="desc"><p>{{desc}}</p></div>
+    <p *ngIf="desc" [innerHTML]=desc></p>
     <div *ngFor="let input of inputs; index as i">
       <mat-form-field style="width:100%">
         <input matInput placeholder="Input" [(ngModel)]=input.payload [type]=input.inputType>

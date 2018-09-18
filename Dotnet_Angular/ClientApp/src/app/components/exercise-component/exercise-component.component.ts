@@ -11,7 +11,7 @@ export class ExerciseComponent implements OnInit {
   @Input('name') name: string;
   @Input('desc') desc: string;
   @Input('buttons') buttons: { apiPath: string, text: string, loading: boolean}[];
-  @Input('inputs') inputs: { payload: string, payloadName: string,inputType: string }[];
+  @Input('inputs') inputs: { payload: string, payloadName: string, inputType: string, formatFunc: Function }[];
 
   result: string;
   duration: string;
@@ -27,7 +27,7 @@ export class ExerciseComponent implements OnInit {
 
     var payload = {};
     this.inputs.forEach((input) => {
-      payload[input.payloadName] = input.payload;
+      payload[input.payloadName] = input.formatFunc ? input.formatFunc(input.payload) : input.payload;
     });
 
     this.exercisesService.exercise(this.buttons[i].apiPath, payload).subscribe(

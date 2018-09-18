@@ -8,23 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class ExercisesComponent implements OnInit {
   exercises = [
     {
-      name: 'Multiple Inputs Test',
+      name: 'Matching Pairs',
+      desc: '<b>Note:</b> Seperate items with a space',
       buttons: [
         {
-          text: 'Multiple',
-          apiPath: '/multiple',
+          text: 'Matching Pairs',
+          apiPath: '/matchingPairs',
         }
       ],
       inputs: [
         {
           payload: '',
-          payloadName: 'p1',
-          inputType: 'text'
-        },
-        {
-          payload: '',
-          payloadName: 'p2',
-          inputType: 'text'
+          payloadName: 'reverse',
+          inputType: 'text',
+          formatFunc: function (payload: string) {
+            return payload.split(' ');
+          }
         }
       ],
     },

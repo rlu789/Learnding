@@ -7,6 +7,25 @@ namespace Dotnet_Angular.Classes
 {
     public class Exercises
     {
+        public static int SockMerchant(List<string> socks)
+        {
+            int matches = 0;
+            Dictionary<string, int> matchingSocks = new Dictionary<string, int>();
+
+            foreach (string sock in socks)
+            {
+                if (matchingSocks.ContainsKey(sock))
+                // if theres already one sock, then now we have a pair
+                // increment and then delete key
+                {
+                    matchingSocks.Remove(sock);
+                    matches++;
+                }
+                else matchingSocks[sock] = 0;
+            }
+            return matches;
+        }
+
         public static long Fib(long num)
         {
             if (num == 0) return 0;

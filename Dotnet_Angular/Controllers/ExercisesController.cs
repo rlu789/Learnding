@@ -22,20 +22,14 @@ namespace Dotnet_Angular.Controllers
         
         public struct StringResult
         {
-            public string duration;
-            public string result;
+            public string duration { get; set; }
+            public string result { get; set; }
             //public long memoryUsed;
             public StringResult(string duration, string result)
             {
                 this.duration = duration;
                 this.result = result;
             }
-        }
-
-        public class MultipleContent
-        {
-            public string p1 { get; set; }
-            public string p2 { get; set; }
         }
 
         [HttpPost("reverse")]
@@ -53,7 +47,7 @@ namespace Dotnet_Angular.Controllers
         }
 
         [HttpPost("fib")]
-        public StringResult Fib(long num)
+        public StringResult Fib([FromBody] long num)
         {
             return Execute(() => Exercises.Fib(num));
         }
@@ -63,10 +57,10 @@ namespace Dotnet_Angular.Controllers
             return Execute(() => Exercises.FibRecursive(num));
         }
 
-        [HttpPost("multiple")]
-        public MultipleContent Multiple([FromBody] MultipleContent m)
+        [HttpPost("matchingPairs")]
+        public StringResult MatchingPairs([FromBody] List<string> socks)
         {
-            return m;
+            return Execute(() => Exercises.SockMerchant(socks));
         }
 
         [HttpPost("test")]

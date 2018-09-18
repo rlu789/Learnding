@@ -18,7 +18,7 @@ export class ExercisesService {
 
   public exercise(apiPath: string, payload: {}) {
     // commas around payload necessary as apiController expects a JSON format because of [FromBody] attr
-      return this.http.post(this.accessPointUrl + apiPath,
-        Object.keys(payload).length === 1 ? "'" + payload[Object.keys(payload)[0]] + "'" : JSON.stringify(payload), { headers: this.headers });
+    return this.http.post(this.accessPointUrl + apiPath,
+      Object.keys(payload).length === 1 ? JSON.stringify(payload[Object.keys(payload)[0]]) : JSON.stringify(payload), { headers: this.headers });
   }
 }
