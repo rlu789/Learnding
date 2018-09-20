@@ -73,6 +73,12 @@ namespace Dotnet_Angular.Controllers
         {
             return Execute(() => Exercises.BigSpender(content.money, content.itemSetOne, content.itemSetTwo));
         }
+        
+        [HttpPost("factorial")]
+        public StringResult Factorial([FromBody] int num)
+        {
+            return Execute(() => Exercises.Factorial(num));
+        }
 
         [HttpPost("test")]
         public string Test([FromBody] int duration)

@@ -8,6 +8,23 @@ import { Component, OnInit } from '@angular/core';
 export class ExercisesComponent implements OnInit {
   exercises = [
     {
+      name: 'Factorial',
+      desc: '<b>Note:</b> Implemented with <i>BigInteger</i>',
+      buttons: [
+        {
+          text: 'Calculate',
+          apiPath: '/factorial',
+        }
+      ],
+      inputs: [
+        {
+          payload: '',
+          payloadName: 'num',
+          inputType: 'number',
+        }
+      ]
+    },
+    {
       name: 'Big Spender',
       desc: '<b>Note:</b> Seperate each item in the shop with a space',
       buttons: [

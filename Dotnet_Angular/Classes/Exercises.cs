@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace Dotnet_Angular.Classes
 {
     public class Exercises
     {
+        public static BigInteger Factorial(int num){
+            BigInteger value = new BigInteger(1);
+            while (num > 0){
+                value = BigInteger.Multiply(value, new BigInteger(num--));
+            }
+            return value;
+        }
+
         public static int BigSpender(int money, List<int> itemSetOne, List<int> itemSetTwo){
             int max = 0;
             foreach(int itemOne in itemSetOne){
@@ -21,21 +30,21 @@ namespace Dotnet_Angular.Classes
             return max;
         }
 
-        public static int MatchingPairs(List<string> socks)
+        public static int MatchingPairs(List<string> items)
         {
             int matches = 0;
-            Dictionary<string, int> matchingSocks = new Dictionary<string, int>();
+            Dictionary<string, int> matchingItems = new Dictionary<string, int>();
 
-            foreach (string sock in socks)
+            foreach (string item in items)
             {
-                if (matchingSocks.ContainsKey(sock))
+                if (matchingItems.ContainsKey(item))
                 // if theres already one sock, then now we have a pair
                 // increment and then delete key
                 {
-                    matchingSocks.Remove(sock);
+                    matchingItems.Remove(item);
                     matches++;
                 }
-                else matchingSocks[sock] = 0;
+                else matchingItems[item] = 0;
             }
             return matches;
         }
