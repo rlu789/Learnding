@@ -21,14 +21,19 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-      <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a routerLink="/home" class="nav-link">Home</a>
     </li>
-    <li class="nav-item">
-      <a routerLink="/exercises" routerLinkActive="active" class="nav-link">Exercises</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a routerLink="/exercises" class="nav-link">Exercises</a>
     </li>
-    <li class="nav-item">
-      <a routerLink="/accounts" routerLinkActive="active" class="nav-link">Accounts</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a routerLink="/accounts" class="nav-link">Accounts</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item" routerLinkActive="active">
+      <a routerLink="/components" class="nav-link">Custom Component Library</a>
     </li>
   </ul>
 </nav>

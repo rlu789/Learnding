@@ -1,4 +1,23 @@
-.navbar-nav .nav-link.active {
-  font-weight: bold;
+.nav-item::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: #ffd740;
+  transition: width .3s;
+  margin: auto;
+}
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.nav-item.active::after {
+  transition: width .3s;
+  border-bottom: 1px solid;
+  color: #ffd740;
+  width: 100%;
+}
+
+.nav-item.active a{
   color: #ffd740;
 }

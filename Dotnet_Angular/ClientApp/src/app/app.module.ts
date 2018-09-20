@@ -14,6 +14,8 @@ import { HomeComponent } from './Pages/home/home.component';
 import { AccountsComponent } from './Pages/accounts/accounts.component';
 import { ExercisesComponent } from './Pages/exercises/exercises.component';
 import { ExerciseComponent } from './Components/exercise-component/exercise-component.component';
+import { CustomTextComponent } from './Custom Components/custom-text/custom-text.component';
+import { ComponentLibraryComponent } from './Pages/component-library/component-library.component';
 
 const appRoutes: Routes = [
   {
@@ -24,6 +26,7 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'exercises', component: ExercisesComponent },
   { path: 'accounts', component: AccountsComponent },
+  { path: 'components', component: ComponentLibraryComponent },
 ];
 
 @NgModule({
@@ -32,7 +35,10 @@ const appRoutes: Routes = [
     HomeComponent,
     AccountsComponent,
     ExercisesComponent,
-    ExerciseComponent
+    ExerciseComponent,
+    ComponentLibraryComponent,
+
+    CustomTextComponent,
   ],
   imports: [
     RouterModule.forRoot(
