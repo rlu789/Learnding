@@ -22,12 +22,14 @@
 }
 
 .custom-text input {
-  border-radius: 0;
-  border-left: none;
+  border-radius: 0px;
+  border-bottom-left-radius: 5px;
   border-right: none;
   border-top: none;
+  transition: all 150ms;
 }
 
+.form-control:valid+.custom-text-placeholder,
 .form-control:focus+.custom-text-placeholder{
   font-size: 75%;
   transform: translate3d(0, -90%, 0);
@@ -38,5 +40,11 @@
   margin: auto;
   width: 100%;
   border-bottom: 1px solid #02c1fc;
-  transition: width 2s;
+  border-left: 2px solid #02c1fc;
+}
+
+.custom-text span{
+  font-weight: lighter;
+  font-size: 14px;
+  font-style: italic;
 }
