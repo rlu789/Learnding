@@ -58,9 +58,20 @@ namespace Dotnet_Angular.Controllers
         }
 
         [HttpPost("matchingPairs")]
-        public StringResult MatchingPairs([FromBody] List<string> socks)
+        public StringResult MatchingPairs([FromBody] List<string> input)
         {
-            return Execute(() => Exercises.SockMerchant(socks));
+            return Execute(() => Exercises.MatchingPairs(input));
+        }
+
+        public class BigSpenderBody{
+            public int money { get; set; }
+            public List<int> itemSetOne { get; set; }
+            public List<int> itemSetTwo { get; set; }
+        }
+        [HttpPost("bigSpender")]
+        public StringResult BigSpender([FromBody] BigSpenderBody content)
+        {
+            return Execute(() => Exercises.BigSpender(content.money, content.itemSetOne, content.itemSetTwo));
         }
 
         [HttpPost("test")]

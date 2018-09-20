@@ -11,7 +11,7 @@ export class ExerciseComponent implements OnInit {
   @Input('name') name: string;
   @Input('desc') desc: string;
   @Input('buttons') buttons: { apiPath: string, text: string, loading: boolean}[];
-  @Input('inputs') inputs: { payload: string, payloadName: string, inputType: string, formatFunc: Function }[];
+  @Input('inputs') inputs: { payload: string, payloadName: string, inputType: string, formatFunc: Function, placeholder: string }[];
 
   result: string;
   duration: string;

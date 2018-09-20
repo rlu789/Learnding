@@ -8,6 +8,42 @@ import { Component, OnInit } from '@angular/core';
 export class ExercisesComponent implements OnInit {
   exercises = [
     {
+      name: 'Big Spender',
+      desc: '<b>Note:</b> Seperate each item in the shop with a space',
+      buttons: [
+        {
+          text: 'Calculate',
+          apiPath: '/bigSpender',
+        }
+      ],
+      inputs: [
+        {
+          payload: '',
+          payloadName: 'money',
+          inputType: 'number',
+          placeholder: 'Money'
+        },
+        {
+          payload: '',
+          payloadName: 'itemSetOne',
+          inputType: 'text',
+          placeholder: 'Item Shop Set 1',
+          formatFunc: function (payload: string) {
+            return payload.split(' ');
+          }
+        },
+        {
+          payload: '',
+          payloadName: 'itemSetTwo',
+          inputType: 'text',
+          placeholder: 'Item Shop Set 2',
+          formatFunc: function (payload: string) {
+            return payload.split(' ');
+          }
+        }
+      ],
+    },
+    {
       name: 'Matching Pairs',
       desc: '<b>Note:</b> Seperate items with a space',
       buttons: [
@@ -19,7 +55,7 @@ export class ExercisesComponent implements OnInit {
       inputs: [
         {
           payload: '',
-          payloadName: 'reverse',
+          payloadName: 'input',
           inputType: 'text',
           formatFunc: function (payload: string) {
             return payload.split(' ');

@@ -4,7 +4,7 @@
     <p *ngIf="desc" [innerHTML]=desc></p>
     <div *ngFor="let input of inputs; index as i">
       <mat-form-field style="width:100%">
-        <input matInput placeholder="Input" [(ngModel)]=input.payload [type]=input.inputType>
+        <input matInput [placeholder]="input.placeholder || 'Input'" [(ngModel)]=input.payload [type]=input.inputType>
       </mat-form-field>
     </div>
 

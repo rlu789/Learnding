@@ -7,7 +7,21 @@ namespace Dotnet_Angular.Classes
 {
     public class Exercises
     {
-        public static int SockMerchant(List<string> socks)
+        public static int BigSpender(int money, List<int> itemSetOne, List<int> itemSetTwo){
+            int max = 0;
+            foreach(int itemOne in itemSetOne){
+                if (itemOne > money) continue;
+                foreach(int itemTwo in itemSetTwo){
+                    if (itemTwo > money) continue;
+                    int result = itemOne + itemTwo;
+                    if (result < money && result > max)
+                        max = result;
+                }
+            }
+            return max;
+        }
+
+        public static int MatchingPairs(List<string> socks)
         {
             int matches = 0;
             Dictionary<string, int> matchingSocks = new Dictionary<string, int>();
