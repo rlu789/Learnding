@@ -1,5 +1,7 @@
 <div class="container">
     <h3>Text</h3>
-    <app-custom-text></app-custom-text>
-    <app-custom-text></app-custom-text>
+    <app-custom-text [placeholder]="'Input'"></app-custom-text>
+    <app-custom-text [placeholder]="'Input'" [prefix]="'$'"></app-custom-text>
+    <app-custom-text [placeholder]="'Input'" [prefix]="'$'" [suffix]="'.00'" [hint]="'A helpful hint'"></app-custom-text>
+    <app-custom-text [placeholder]="'Input'" [prefix]="'$'" [suffix]="'.00'"></app-custom-text>
 </div>

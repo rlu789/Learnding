@@ -9,18 +9,39 @@
 
 .custom-text{
   margin-bottom: 1.5rem;
-  margin-top: 30px;
+  margin-top: 20px;
+}
+
+.custom-text span{
+  font-weight: lighter;
+  font-size: 14px;
+  font-style: italic;
 }
 
 .custom-text-inner {
   display: table;
+  border-collapse: collapse; /* Remove border bottom line from thickening caused from display: table */
   position: relative;
   width: 100%;
 }
 
-.prefix{
+.custom-text-inner div{
   display: table-cell;
   text-align: center;
+  width: 5%;
+  padding: 0 10px;
+}
+
+.custom-text-inner {
+  border-right: none;
+  border-left: 2px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #8f8f8f;
+  transition: all 150ms;
+}
+.custom-text-inner input {
+  border-radius: 0;
+  border: none;
 }
 
 .custom-text-placeholder {
@@ -33,17 +54,6 @@
   /* this has I.E. compatbility issues */
 }
 
-.custom-text-inner {
-  border-right: none;
-  border-left: none;
-  border-top: none;
-  border-bottom: 1px solid #8f8f8f;
-  transition: all 150ms;
-}
-.custom-text-inner input {
-  border: none;
-}
-
 .form-control:valid+.custom-text-placeholder,
 .form-control:focus+.custom-text-placeholder{
   font-size: 75%;
@@ -52,16 +62,11 @@
   color: #02c1fc;
 }
 .custom-text :focus-within{
+  border-collapse: initial;
   border-bottom-left-radius: 5px;
   border-bottom: 1px solid #02c1fc;
   border-left: 2px solid #02c1fc;
 }
 .custom-text-inner :focus-within{
   border: none;
-}
-
-.custom-text span{
-  font-weight: lighter;
-  font-size: 14px;
-  font-style: italic;
 }

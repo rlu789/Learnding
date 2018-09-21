@@ -2,9 +2,10 @@
 <!-- GLOBAL CSS CLASSES? -->
 <div class="custom-text">  
   <div class="custom-text-inner">  
-    <div class="prefix">$</div>
+    <div *ngIf="prefix" [innerHTML]="prefix"></div>
     <input type="text"class="form-control" required>
-    <label class="custom-text-placeholder">Input</label>
+    <label class="custom-text-placeholder">{{placeholder}}</label>
+    <div *ngIf="suffix" [innerHTML]="suffix"></div>
   </div>
-  <span>Hint</span>
+  <span *ngIf="hint" [innerHTML]="hint"></span>
 </div>
