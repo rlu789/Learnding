@@ -60,6 +60,7 @@
 }
 .form-control:not(:focus)+.custom-text-placeholder{
   color: inherit;
+  transition: all 150ms;
 }
 
 .custom-text :focus-within{
@@ -67,14 +68,16 @@
   border-bottom-left-radius: 5px;
   border-bottom: 1px solid #02c1fc;
   border-left: 2px solid #02c1fc;
-  transition: all 150ms;
 }
 .custom-text-inner :focus-within{
   border: none;
 }
 .custom-text :focus-within div{
   color: #02c1fc;
-  transition: all 150ms;
+}
+.custom-text :focus-within input{
+  border-bottom: 1px solid transparent; /* This fixes broken css above to do with borders... god i hate css */
+  transition: none;
 }
 
 .error{
