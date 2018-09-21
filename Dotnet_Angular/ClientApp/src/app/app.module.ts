@@ -14,8 +14,9 @@ import { HomeComponent } from './Pages/home/home.component';
 import { AccountsComponent } from './Pages/accounts/accounts.component';
 import { ExercisesComponent } from './Pages/exercises/exercises.component';
 import { ExerciseComponent } from './Components/exercise-component/exercise-component.component';
-import { CustomTextComponent } from './Custom Components/custom-text/custom-text.component';
 import { ComponentLibraryComponent } from './Pages/component-library/component-library.component';
+import { CustomTextComponent } from './Custom Components/custom-text/custom-text.component';
+import { CustomButtonComponent } from './Custom Components/custom-button/custom-button.component';
 
 const appRoutes: Routes = [
   {
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     ComponentLibraryComponent,
 
     CustomTextComponent,
+    CustomButtonComponent,
   ],
   imports: [
     RouterModule.forRoot(
