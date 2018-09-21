@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef  } from '@angular/core';
 
 @Component({
   selector: 'app-custom-text',
@@ -9,7 +9,9 @@ export class CustomTextComponent implements OnInit {
   @Input('prefix') prefix: string;
   @Input('suffix') suffix: string;
   @Input('placeholder') placeholder: string;
+  @Input('text') text: string;
   @Input('hint') hint: string;
+  @Input('error') error: Function;
 
   constructor() { }
 
