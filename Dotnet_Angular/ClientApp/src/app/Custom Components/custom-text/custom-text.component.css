@@ -3,7 +3,7 @@
 [type=email].form-control:focus,
 [type=tel].form-control:focus,
 [contenteditable].form-control:focus {
-  box-shadow: inset 0 0px 0 #ddd;
+  box-shadow: inset 0 0px 0 #ddd; /* Remove default bootstrap effect */
 }
 
 .custom-text{
@@ -23,7 +23,7 @@
   position: relative;
   width: 100%;
   border-right: none;
-  border-left: 2px solid transparent;
+  border-left: 1px solid transparent;
   border-top: none;
   border-bottom: 1px solid #8f8f8f;
   transition: all 150ms;
@@ -67,7 +67,7 @@
   border-collapse: inherit;
   border-bottom-left-radius: 5px;
   border-bottom: 1px solid #02c1fc;
-  border-left: 2px solid #02c1fc;
+  border-left: 1px solid #02c1fc;
 }
 .custom-text-inner :focus-within{
   border: none;
