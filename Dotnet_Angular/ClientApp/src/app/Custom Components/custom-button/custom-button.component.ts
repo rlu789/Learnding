@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ExercisesService } from '../../Services/exercises.service';
 
 @Component({
   selector: 'app-custom-button',
@@ -9,7 +10,7 @@ export class CustomButtonComponent implements OnInit {
   loading = false;
   @Input('clickFunc') clickFunc: Function;
 
-  constructor() { }
+  constructor(private exercisesService: ExercisesService) { }
 
   ngOnInit() {
   }
@@ -18,7 +19,11 @@ export class CustomButtonComponent implements OnInit {
     console.log("BUTTON CLICKED");
     var self = this;
     this.loading = true;
-    new Promise(resolve => setTimeout(resolve, 2000)).then(function(){
+
+    //TODO find a new way to do this.
+    return new Promise(resolve => {
+      resolve(self.clickFunc());
+    }).then(function(){
       self.loading = false;
     });
   }
