@@ -79,6 +79,12 @@ namespace Dotnet_Angular.Controllers
         {
             return Execute(() => Exercises.Factorial(num));
         }
+        
+        [HttpPost("equal")]
+        public StringResult Eqal([FromBody] List<int> input)
+        {
+            return Execute(() => Exercises.Equal(input));
+        }
 
         [HttpPost("test")]
         public string Test([FromBody] int duration)

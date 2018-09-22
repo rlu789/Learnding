@@ -8,6 +8,52 @@ namespace Dotnet_Angular.Classes
 {
     public class Exercises
     {
+        
+        // TODO refine
+        public static int Equal(List<int> input)
+        {
+            int count = 0;
+            while (input.Distinct().Count() != 1)
+            {
+                int max = 0, min = 0;
+                for (int i = 0; i < input.Count; i++)
+                {
+                    if (i == 0) min = input[i]; // set the min
+                    if (input[i] >= max)
+                    {
+                        max = input[i];
+                    }
+                    if (input[i] < min)
+                    {
+                        min = input[i];
+                    }
+                }
+
+                int amountToSub = 0;
+                switch(max - min)
+                {
+                    case int n when (n >= 5):
+                        amountToSub = 5;
+                        break;
+                    case int n when (n >= 2 && n <= 4):
+                        amountToSub = 2;
+                        break;
+                    case int n when (n == 1):
+                        amountToSub = 1;
+                        break;
+                }
+
+                for (int i = 0; i < input.Count; i++)
+                {
+                    if (input[i] - amountToSub >= min){
+                        input[i] -= amountToSub;
+                        count++;
+                    }
+                }
+            }
+            return count;
+        }
+
         public static BigInteger Factorial(int num){
             BigInteger value = new BigInteger(1);
             while (num > 0){

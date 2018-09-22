@@ -10,6 +10,12 @@ export class ComponentLibraryComponent implements OnInit {
     if (input === undefined || input.length < 3) return true
   }
 
+  btnFunc(time: number){
+    return setTimeout(() => {
+      return;
+    }, time);
+  }
+
   constructor() { }
 
   ngOnInit() {

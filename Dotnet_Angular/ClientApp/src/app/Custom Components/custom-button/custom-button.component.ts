@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-custom-button',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomButtonComponent implements OnInit {
   loading = false;
+  @Input('clickFunc') clickFunc: Function;
 
   constructor() { }
 

@@ -62,6 +62,7 @@
 }
 
 .custom-button.button-loading{
+  border: 1px solid #37474f;
 	color: white;
 	cursor: default;
 }
