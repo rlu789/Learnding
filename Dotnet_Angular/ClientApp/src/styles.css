@@ -2,12 +2,21 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+/* GLOBAL ANIMATIONS */
 @keyframes spinner {
   to {
     transform: rotate(360deg);
   }
 }
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
 
+@keyframes fadeOut {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
 .spinner:before {
   content: '';
   box-sizing: border-box;
@@ -20,7 +29,7 @@
   margin-left: -10px;
   border-radius: 50%;
   border: 2px solid #ccc;
-  border-top-color: #333;
+  border-top-color: rgb(51, 51, 51);
   animation: spinner .6s linear infinite;
 }
 

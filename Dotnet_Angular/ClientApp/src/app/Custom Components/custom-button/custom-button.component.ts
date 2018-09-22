@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./custom-button.component.css']
 })
 export class CustomButtonComponent implements OnInit {
+  loading = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  click(){
+    console.log("BUTTON CLICKED");
+    var self = this;
+    this.loading = true;
+    new Promise(resolve => setTimeout(resolve, 2000)).then(function(){
+      self.loading = false;
+    });
+  }
 }
