@@ -1,4 +1,4 @@
 <button class='custom-button' (click)="click()" [ngClass]="{'button-loading': loading}" [disabled]='loading'>
-  <span>Button</span>
+  <span>{{text || 'Button'}}</span>
   <div class="spinner"></div>
 </button>

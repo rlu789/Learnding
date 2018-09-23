@@ -1,8 +1,8 @@
 <div class="container">
     <h3>Button</h3>
-    <app-custom-button [clickFunc] = 'btnFunc'></app-custom-button>
-    <app-custom-button [clickFunc] = 'btnFunc2'></app-custom-button>
-    <app-custom-button [clickFunc] = 'btnServiceCall'></app-custom-button>
+    <app-custom-button (clickFunc) = 'btnFunc($event)'></app-custom-button>
+    <app-custom-button [text] = "'Loading'" (clickFunc) = 'btnFunc2($event)'></app-custom-button>
+    <app-custom-button [text] = "'Service Call'" (clickFunc)= 'btnServiceCall($event)'></app-custom-button>
     
     <h3>Text</h3>
     <app-custom-text [placeholder]="'Input'"></app-custom-text>

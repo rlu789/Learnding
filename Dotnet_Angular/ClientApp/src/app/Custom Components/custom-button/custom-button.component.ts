@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ExercisesService } from '../../Services/exercises.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-custom-button',
@@ -8,9 +8,10 @@ import { ExercisesService } from '../../Services/exercises.service';
 })
 export class CustomButtonComponent implements OnInit {
   loading = false;
-  @Input('clickFunc') clickFunc: Function;
+  @Input('text') text: string;
+  @Output('clickFunc') clickFunc = new EventEmitter();
 
-  constructor(private exercisesService: ExercisesService) { }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -19,12 +20,12 @@ export class CustomButtonComponent implements OnInit {
     console.log("BUTTON CLICKED");
     var self = this;
     this.loading = true;
+    var observer = {
+      complete: () => {self.loading = false; }
+    };
+    var observable = new Observable();
+    observable.subscribe(observer)
 
-    //TODO find a new way to do this.
-    return new Promise(resolve => {
-      resolve(self.clickFunc());
-    }).then(function(){
-      self.loading = false;
-    });
+    this.clickFunc.emit(observer); // send the event back up to parent so that parent func can call $event.complete()
   }
 }
