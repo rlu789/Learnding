@@ -1,11 +1,12 @@
 <!-- <div class="form-group"></div> -->
 <!-- GLOBAL CSS CLASSES? -->
-<div class="custom-text">  
-  <div class="custom-text-inner" [ngClass]="{'error': error ? error(text) : false}">  
+<div class="custom-text" [ngClass]="{'custom-text-error': error ? error(text) : false}">  
+  <div class="custom-text-inner">  
     <div *ngIf="prefix" [innerHTML]="prefix"></div>
     <input type="text"class="form-control" required [(ngModel)]="text">
     <label class="custom-text-placeholder">{{placeholder}}</label>
     <div *ngIf="suffix" [innerHTML]="suffix"></div>
   </div>
-  <span *ngIf="hint" [innerHTML]="hint"></span>
+  <span class='text-hint' *ngIf="hint" [innerHTML]="hint"></span>
+  <span class='error-text'>{{errorMessage || 'Error'}}</span>
 </div>

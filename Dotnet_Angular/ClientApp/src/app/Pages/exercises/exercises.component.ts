@@ -10,12 +10,17 @@ export class ExercisesComponent implements OnInit {
     {
       name: 'Equal',
       desc: '<a href="https://www.hackerrank.com/challenges/equal/problem" target="_blank"><i>Equal Problem</i></a>' +
-      '<br /> Done via realising that adding to several to match a value is the same as substracting from that key value. ' +
-      'Important as we only need the <i>minimum number of operations</i> and not that actual final result',
+      '<p>Done via realising that adding an amount to several values to match a <b>key value</b> is the same as substracting from that <b>key value.</b> ' +
+      'Important as we only need the <i>minimum number of operations</i> and not the final result.<p>' +
+      '<p>V2 refined to only loop through array once.<p>',
       buttons: [
         {
           text: 'Equalize',
           apiPath: '/equal',
+        },
+        {
+          text: 'Equalize V2',
+          apiPath: '/equalv2',
         }
       ],
       inputs: [
@@ -31,7 +36,7 @@ export class ExercisesComponent implements OnInit {
     },
     {
       name: 'Factorial',
-      desc: '<b>Note:</b> Implemented with <i>BigInteger</i>',
+      desc: '<b>Note:</b> Implemented with <i>BigInteger</i>.',
       buttons: [
         {
           text: 'Calculate',
@@ -48,7 +53,7 @@ export class ExercisesComponent implements OnInit {
     },
     {
       name: 'Big Spender',
-      desc: '<b>Note:</b> Seperate each item in the shop with a space',
+      desc: '<b>Note:</b> Seperate each item in the shop with a space.',
       buttons: [
         {
           text: 'Calculate',
@@ -84,7 +89,7 @@ export class ExercisesComponent implements OnInit {
     },
     {
       name: 'Matching Pairs',
-      desc: '<b>Note:</b> Seperate items with a space',
+      desc: '<b>Note:</b> Seperate items with a space.',
       buttons: [
         {
           text: 'Matching Pairs',
@@ -120,7 +125,7 @@ export class ExercisesComponent implements OnInit {
     },
     {
       name: 'Fibonacci',
-      desc: 'Calculates Fibonacco sequences with number starting at 0. Includes option for a recursive solution',
+      desc: 'Calculates Fibonacco sequences with number starting at 0. Includes option for a recursive solution.',
       buttons: [
         {
           text: 'Fibonacci',

@@ -12,6 +12,7 @@ export class CustomTextComponent implements OnInit {
   @Input('text') text: string;
   @Input('hint') hint: string;
   @Input('error') error: Function;
+  @Input('errorMessage') errorMessage: string;
 
   constructor() { }
 

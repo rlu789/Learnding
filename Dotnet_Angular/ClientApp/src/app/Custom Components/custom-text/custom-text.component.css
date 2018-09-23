@@ -11,10 +11,15 @@
   margin-top: 20px;
 }
 
-.custom-text span{
+.custom-text .text-hint{
   font-weight: lighter;
   font-size: 14px;
   font-style: italic;
+}
+
+.custom-text-error .custom-text-inner{
+  color: #ff4931;
+  border-bottom: 1px solid #ff4931;
 }
 
 .custom-text-inner {
@@ -80,7 +85,18 @@
   transition: none;
 }
 
-.error{
+.error-text{
   color: #ff4931;
-  border-bottom: 1px solid #ff4931;
+  float: right;
+  color: #ff4931;
+  font-weight: bold;
+  font-style: italic;
+  opacity: 0;
+	transition: all 200ms;
+}
+
+.custom-text-error .error-text{
+	animation-name: fadeIn;
+  animation-duration: 0.5s;
+  opacity: 1;
 }

@@ -81,9 +81,15 @@ namespace Dotnet_Angular.Controllers
         }
         
         [HttpPost("equal")]
-        public StringResult Eqal([FromBody] List<int> input)
+        public StringResult Equal([FromBody] List<int> input)
         {
             return Execute(() => Exercises.Equal(input));
+        }
+        
+        [HttpPost("equalv2")]
+        public StringResult EqualV2([FromBody] List<int> input)
+        {
+            return Execute(() => Exercises.EqualV2(input));
         }
 
         [HttpPost("test")]

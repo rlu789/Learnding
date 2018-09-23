@@ -8,8 +8,42 @@ namespace Dotnet_Angular.Classes
 {
     public class Exercises
     {
-        
-        // TODO refine
+        public static int EqualV2(List<int> input){
+            input.Sort();
+            int min = input[0], max = input[input.Count - 1], count = 0;
+            while(max != min){
+                int amountToSub = 0;
+                switch(max - min)
+                {
+                    case int n when (n >= 5):
+                        amountToSub = 5;
+                        break;
+                    case int n when (n >= 2 && n <= 4):
+                        amountToSub = 2;
+                        break;
+                    case int n when (n == 1):
+                        amountToSub = 1;
+                        break;
+                }
+                max = 0;
+
+                for (int i = 0; i < input.Count; i++)
+                {
+                    if (input[i] - amountToSub >= min){
+                        input[i] -= amountToSub;
+                        count++;
+                    }
+                    if (input[i] == min && input.Count != 2){
+                        input.RemoveAt(i--);
+                        continue;
+                    }
+                    if (input[i] > max)
+                         max = input[i];
+                }
+            }
+            return count;
+        }
+
         public static int Equal(List<int> input)
         {
             int count = 0;

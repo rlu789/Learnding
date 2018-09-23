@@ -36,3 +36,8 @@
 .jumbotron{
   padding: 2rem 2rem;
 }
+
+.container{
+  animation-name: fadeIn;
+  animation-duration: 200ms;
+}
