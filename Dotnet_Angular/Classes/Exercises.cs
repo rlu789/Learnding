@@ -118,7 +118,7 @@ namespace Dotnet_Angular.Classes
             foreach (string item in items)
             {
                 if (matchingItems.ContainsKey(item))
-                // if theres already one sock, then now we have a pair
+                // if theres already one item, then now we have a pair
                 // increment and then delete key
                 {
                     matchingItems.Remove(item);

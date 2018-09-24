@@ -1,0 +1,25 @@
+.custom-alert{
+    background-color: #e9ecef;
+    padding: 20px 20px 10px 15px;
+    border-radius: 5px;
+    border-left: 6px solid #02c1fc;
+    margin: 15px 0;
+}
+
+.custom-alert .icon{
+    float: left;
+    margin-right: 15px;
+}
+
+.custom-alert h3{
+    /* Override default */
+    position: relative;
+    bottom: .18rem;
+    font-size: 1.8rem;
+}
+
+.content{
+    padding-left: 46.5px;
+    font-size: 18px;
+    margin-top: 4px;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ExercisesService } from '../../Services/exercises.service';
 
 @Component({
@@ -30,10 +30,10 @@ export class ComponentLibraryComponent implements OnInit {
 
   btnServiceCall($event){
     var self = this;
-      self.exercisesService.test(1)
-        .subscribe((data: any) => { 
-          console.log(data);
-          $event.complete();
-        });
+    self.exercisesService.test(100)
+      .subscribe((data: any) => { 
+        console.log(data);
+        $event.complete();
+      });
   }
 }

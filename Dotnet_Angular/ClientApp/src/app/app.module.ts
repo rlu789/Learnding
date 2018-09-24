@@ -17,6 +17,7 @@ import { ExerciseComponent } from './Components/exercise-component/exercise-comp
 import { ComponentLibraryComponent } from './Pages/component-library/component-library.component';
 import { CustomTextComponent } from './Custom Components/custom-text/custom-text.component';
 import { CustomButtonComponent } from './Custom Components/custom-button/custom-button.component';
+import { CustomAlertComponent } from './Custom Components/custom-alert/custom-alert.component';
 
 const appRoutes: Routes = [
   {
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
 
     CustomTextComponent,
     CustomButtonComponent,
+    CustomAlertComponent,
   ],
   imports: [
     RouterModule.forRoot(

@@ -21,10 +21,10 @@ export class CustomButtonComponent implements OnInit {
     var self = this;
     this.loading = true;
     var observer = {
-      complete: () => {self.loading = false; }
+      complete: () => { self.loading = false; }
     };
     var observable = new Observable();
-    observable.subscribe(observer)
+    observable.subscribe(observer);
 
     this.clickFunc.emit(observer); // send the event back up to parent so that parent func can call $event.complete()
   }
