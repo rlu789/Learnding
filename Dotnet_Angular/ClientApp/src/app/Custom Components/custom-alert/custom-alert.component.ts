@@ -37,6 +37,6 @@ export class CustomAlertComponent implements OnInit {
   }
 
   dismiss(){
-      this.typeClass += ' dismissed';
+      this.isVisible = false;
   }
 }
