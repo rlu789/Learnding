@@ -92,6 +92,16 @@ namespace Dotnet_Angular.Controllers
             return Execute(() => Exercises.EqualV2(input));
         }
 
+        public class PairsBody{
+            public int difference { get; set; }
+            public List<int> input { get; set; }
+        }
+        [HttpPost("pairs")]
+        public StringResult Pairs([FromBody] PairsBody body)
+        {
+            return Execute(() => Exercises.Pairs(body.difference, body.input));
+        }
+
         [HttpPost("test")]
         public string Test([FromBody] int duration)
         {

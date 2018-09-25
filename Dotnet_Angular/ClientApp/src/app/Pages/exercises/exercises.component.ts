@@ -8,6 +8,33 @@ import { Component, OnInit } from '@angular/core';
 export class ExercisesComponent implements OnInit {
   exercises = [
     {
+      name: 'Pairs',
+      desc: '<p>Given an <b>array of integers</b> and a <b>target value</b>, compute the number of pairs in the array that have a difference equal to the target value </p>'+
+      '<p><i>E.g.:</i> [1, 2, 3, 4] results in an answer of <b>3</b></p>',
+      buttons: [
+        {
+          text: 'Compute',
+          apiPath: '/pairs',
+        }
+      ],
+      inputs: [
+        {
+          payload: '',
+          payloadName: 'difference',
+          inputType: 'number',
+          placeholder: 'Target'
+        },
+        {
+          payload: '',
+          payloadName: 'input',
+          inputType: 'text',
+          formatFunc: function (payload: string) {
+            return payload.split(' ');
+          }
+        }
+      ]
+    },
+    {
       name: 'Equal',
       desc: '<a href="https://www.hackerrank.com/challenges/equal/problem" target="_blank"><i>Equal Problem</i></a>' +
       '<p>Done via realising that adding an amount to several values to match a <b>key value</b> is the same as substracting from that <b>key value.</b> ' +

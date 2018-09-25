@@ -8,6 +8,22 @@ namespace Dotnet_Angular.Classes
 {
     public class Exercises
     {
+        public static int Pairs(int difference, List<int> input){
+            input = input.Distinct().ToList();
+            input.Sort((a, b) => -1* a.CompareTo(b));
+
+            int count = 0;
+            for (int i = 0; i < input.Count; i++){
+                for (int j = 0; j < input.Count; j++){
+                    if (input[i] - input[j] > difference)
+                        break;
+                    if (input[i] - input[j] == difference)
+                        count++;
+                }
+            }
+            return count;
+        }
+
         public static int EqualV2(List<int> input){
             input.Sort();
             int min = input[0], max = input[input.Count - 1], count = 0;
