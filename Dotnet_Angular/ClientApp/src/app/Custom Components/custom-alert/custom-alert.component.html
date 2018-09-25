@@ -1,6 +1,6 @@
-<div class="custom-alert">
-  <span [ngClass] = class></span>
-  <!-- <button type="button" class="close">&times;</button> -->
+<div class="custom-alert" [ngClass]=typeClass *ngIf="isVisible">
+  <span [ngClass]=iconClass></span>
+  <button *ngIf="dismissible" type="button" class="close fas fa-times" (click)='dismiss()'></button>
   <h3 *ngIf="title">{{title}}</h3>
   <div class='content' [innerHtml]="content"></div>
 </div>

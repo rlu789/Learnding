@@ -1,7 +1,9 @@
 <div class="container">
     <h3>Alert</h3>
-    <app-custom-alert [type]="'i'" [title] = "'Alert Title'" [content] = "'<p>This is an information alert. You have been alerted! This is an information alert. You have been alerted! This is an information alert. You have been alerted!</p>'"></app-custom-alert>
+    <app-custom-alert [type]="'i'" [title] = "'Information'" [content] = "'<p>This is an information alert. You have been alerted! This is an information alert. You have been alerted! This is an information alert. You have been alerted!</p>'"></app-custom-alert>
     <app-custom-alert [type]="'i'" [content] = "'<p>This is an information alert with no title.'"></app-custom-alert>
+    <app-custom-alert [dismissible] = 'true' [type]="'w'" [title] = "'Warning'" [content] = "'<p>This is a <b>dismissible</b> warning!</p>'"></app-custom-alert>
+    <app-custom-alert [type]="'s'" [title] = "'Success'" [content] = "'<p>Congrats. Whatever you did was successful.</p>'"></app-custom-alert>
 
     <h3>Button</h3>
     <app-custom-button (clickFunc) = 'btnFunc($event)'></app-custom-button>

@@ -1,25 +1,56 @@
+.info{
+    border-left: 6px solid #009ccc;
+}
+.warning{
+    border-left: 6px solid #fa371d;
+}
+.success{
+    border-left: 6px solid #00cc55;
+}
+
 .custom-alert{
     background-color: #e9ecef;
     padding: 20px 20px 10px 15px;
-    border-radius: 5px;
-    border-left: 6px solid #02c1fc;
-    margin: 15px 0;
+    border-radius: 4px;
+    margin: 15px 0 20px 0;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.custom-alert:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .custom-alert .icon{
     float: left;
     margin-right: 15px;
 }
+.custom-alert.info .icon{
+    color: #009ccc;
+}
+.custom-alert.warning .icon{
+    color: #fa371d;
+}
+.custom-alert.success .icon{
+    color: #00cc55;
+}
 
 .custom-alert h3{
-    /* Override default */
     position: relative;
-    bottom: .18rem;
-    font-size: 1.8rem;
+    top: 0.08rem;
+    width: 95%;
+    margin-right: auto;
+}
+.custom-alert.info h3{
+    color: #009ccc;
+}
+.custom-alert.warning h3{
+    color: #fa371d;
+}
+.custom-alert.success h3{
+    color: #00cc55;
 }
 
 .content{
-    padding-left: 46.5px;
-    font-size: 18px;
+    padding-left: 48px;
+    font-size: 16px;
     margin-top: 4px;
 }
