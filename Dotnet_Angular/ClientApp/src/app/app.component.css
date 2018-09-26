@@ -21,6 +21,9 @@
 .nav-item.active a{
   color: #ffd740;
 }
+.nav-item.active a.dropdown-item{
+  color: inherit;
+}
 
 .dropdown-menu{
   /* Overriden default bootstrap styles */

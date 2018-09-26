@@ -1,6 +1,6 @@
 <!-- <div class="form-group"></div> -->
 <!-- GLOBAL CSS CLASSES? -->
-<div class="custom-text" [formGroup]="validator" [ngClass]="{'custom-text-error': validator.invalid}" >  
+<div class="custom-text" [formGroup]="formGroup" [ngClass]="{'custom-text-error': formGroup.invalid}" >  
   <div class="custom-text-inner">  
     <div *ngIf="prefix" [innerHTML]="prefix"></div>
     <input type="text"class="form-control" placeholder=" " formControlName="validator">

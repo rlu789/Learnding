@@ -63,6 +63,14 @@
   opacity: 1;
   color: #02c1fc;
 }
+.custom-text-error .custom-text-inner .form-control:not(:placeholder-shown)+.custom-text-placeholder,
+.custom-text-error .custom-text-inner .form-control:focus+.custom-text-placeholder{
+  font-size: 75%;
+  transform: translate3d(0, -90%, 0);
+  opacity: 1;
+  color: #ff4931;
+}
+
 .form-control:not(:focus)+.custom-text-placeholder{
   color: inherit;
   transition: all 150ms;
@@ -84,6 +92,24 @@
   border-bottom: 1px solid transparent; /* This fixes broken css above to do with borders... god i hate css */
   transition: none;
 }
+
+.custom-text-error.custom-text :focus-within.custom-text-inner{
+  border-collapse: inherit;
+  border-bottom-left-radius: 5px;
+  border-bottom: 1px solid #ff4931;
+  border-left: 1px solid #ff4931;
+}
+.custom-text-error.custom-text-inner :focus-within{
+  border: none;
+}
+.custom-text-error.custom-text :focus-within div{
+  color: #ff4931;
+}
+.custom-text-error.custom-text :focus-within input{
+  border-bottom: 1px solid transparent; /* This fixes broken css above to do with borders... god i hate css */
+  transition: none;
+}
+
 
 .error-text{
   color: #ff4931;

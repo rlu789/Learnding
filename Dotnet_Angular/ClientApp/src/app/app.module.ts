@@ -15,6 +15,7 @@ import { AccountsComponent } from './Pages/accounts/accounts.component';
 import { ExercisesComponent } from './Pages/exercises/exercises.component';
 import { ExerciseComponent } from './Components/exercise-component/exercise-component.component';
 import { ComponentLibraryComponent } from './Pages/component-library/component-library.component';
+import { FormAComponent } from './Pages/component-library/form-a/form-a.component';
 import { CustomTextComponent } from './Custom Components/custom-text/custom-text.component';
 import { CustomButtonComponent } from './Custom Components/custom-button/custom-button.component';
 import { CustomAlertComponent } from './Custom Components/custom-alert/custom-alert.component';
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'exercises', component: ExercisesComponent },
   { path: 'accounts', component: AccountsComponent },
   { path: 'components', component: ComponentLibraryComponent },
+  { path: 'form-a', component: FormAComponent },
 ];
 
 @NgModule({
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
     ExercisesComponent,
     ExerciseComponent,
     ComponentLibraryComponent,
+    FormAComponent,
 
     CustomTextComponent,
     CustomButtonComponent,

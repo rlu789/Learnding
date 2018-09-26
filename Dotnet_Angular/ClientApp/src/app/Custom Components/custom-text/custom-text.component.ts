@@ -10,21 +10,23 @@ export class CustomTextComponent implements OnInit {
   @Input('prefix') prefix: string;
   @Input('suffix') suffix: string;
   @Input('placeholder') placeholder: string;
-  @Input('text') text: string;
   @Input('hint') hint: string;
-  @Input('error') error: Function;
   @Input('errorMessage') errorMessage: string;
-  @Input('errorValidators') errorValidators: [];
-  validator: FormGroup;
+  @Input('formGroup') formGroup: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
-    this.validator = new FormGroup({
-      'validator': new FormControl(this.text, this.errorValidators),
+    if (!this.formGroup){
+      this.formGroup = new FormGroup({
+        'validator': new FormControl('', [ ]),
+      });
+    }
+    this.formGroup.valueChanges.subscribe(value => {
+      console.log('name has changed:', value)
     });
   }
 
-  get validate() { return this.validator.get('validator'); }
+  get validate() { return this.formGroup.get('validator'); }
 
 }

@@ -8,19 +8,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./component-library.component.css']
 })
 export class ComponentLibraryComponent implements OnInit {
-  exampleValidators: any;
+  formGroup4: any;
+  formGroup4Text = '';
 
   constructor(private exercisesService: ExercisesService) { }
 
   ngOnInit() {
-    this.exampleValidators = [
-      Validators.required,
-      Validators.minLength(4)
-    ]
-  }
-
-  public error(input: string){
-    if (input === undefined || input.length < 3) return true
+    this.formGroup4 = new FormGroup({
+      'validator': new FormControl(this.formGroup4Text, [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+    });
   }
 
   btnFunc($event){ 
