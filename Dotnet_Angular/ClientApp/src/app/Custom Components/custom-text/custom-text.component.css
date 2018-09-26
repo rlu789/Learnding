@@ -56,7 +56,7 @@
   /* this has I.E. compatbility issues */
 }
 
-.form-control:valid+.custom-text-placeholder,
+.form-control:not(:placeholder-shown)+.custom-text-placeholder,
 .form-control:focus+.custom-text-placeholder{
   font-size: 75%;
   transform: translate3d(0, -90%, 0);
@@ -88,7 +88,6 @@
 .error-text{
   color: #ff4931;
   float: right;
-  color: #ff4931;
   font-weight: bold;
   font-style: italic;
   opacity: 0;

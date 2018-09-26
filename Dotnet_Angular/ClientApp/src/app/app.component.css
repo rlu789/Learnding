@@ -21,3 +21,13 @@
 .nav-item.active a{
   color: #ffd740;
 }
+
+.dropdown-menu{
+  /* Overriden default bootstrap styles */
+  right: 1px;
+  left: initial;
+}
+
+.nav-item.dropdown{
+  cursor: pointer;
+}

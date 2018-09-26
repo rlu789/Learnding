@@ -35,6 +35,19 @@
     <li class="nav-item" routerLinkActive="active">
       <a routerLink="/components" class="nav-link">Custom Component Library</a>
     </li>
+    
+    <li class="nav-item dropdown">
+      <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" (mouseover)="mouseover($event)" (mouseout)="mouseout($event)"> -->
+      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" (click)="hover=true">
+        Examples
+      </a>
+      <div class="dropdown-menu" [ngClass]="{'show': hover}"  (mouseleave)="hover=false">
+        <a class="dropdown-item" href="#">Form A</a>
+        <a class="dropdown-item" href="#">Form B</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Custom</a>
+      </div>
+    </li>
   </ul>
 </nav>
 

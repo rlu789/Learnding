@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExercisesService } from '../../Services/exercises.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-component-library',
@@ -7,9 +8,15 @@ import { ExercisesService } from '../../Services/exercises.service';
   styleUrls: ['./component-library.component.css']
 })
 export class ComponentLibraryComponent implements OnInit {
+  exampleValidators: any;
+
   constructor(private exercisesService: ExercisesService) { }
 
   ngOnInit() {
+    this.exampleValidators = [
+      Validators.required,
+      Validators.minLength(4)
+    ]
   }
 
   public error(input: string){
