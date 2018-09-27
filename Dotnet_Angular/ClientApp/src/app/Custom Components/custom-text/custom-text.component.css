@@ -1,8 +1,4 @@
-[type=text].form-control:focus,
-[type=password].form-control:focus,
-[type=email].form-control:focus,
-[type=tel].form-control:focus,
-[contenteditable].form-control:focus {
+.form-control:focus {
   box-shadow: inset 0 0px 0 #ddd; /* Remove default bootstrap effect */
 }
 

@@ -7,6 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./custom-text.component.css']
 })
 export class CustomTextComponent implements OnInit {
+  @Input('type') type: string;
   @Input('prefix') prefix: string;
   @Input('suffix') suffix: string;
   @Input('placeholder') placeholder: string;
@@ -22,9 +23,6 @@ export class CustomTextComponent implements OnInit {
         'validator': new FormControl('', [ ]),
       });
     }
-    this.formGroup.valueChanges.subscribe(value => {
-      console.log('name has changed:', value)
-    });
   }
 
   get validate() { return this.formGroup.get('validator'); }

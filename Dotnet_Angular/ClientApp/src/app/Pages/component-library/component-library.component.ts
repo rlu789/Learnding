@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExercisesService } from '../../Services/exercises.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'app-component-library',
@@ -8,6 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./component-library.component.css']
 })
 export class ComponentLibraryComponent implements OnInit {
+  formGroup1: any;
   formGroup4: any;
   formGroup4Text = '';
 
@@ -20,7 +21,22 @@ export class ComponentLibraryComponent implements OnInit {
         Validators.minLength(3)
       ]),
     });
+    this.formGroup1 = new FormGroup({
+      'validator': new FormControl(this.formGroup4Text, [
+        this.ageRangeValidator(10, 20)
+      ]),
+    });
   }
+
+  ageRangeValidator(min: number, max: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: boolean } | null => {
+        if (control.value !== undefined && (isNaN(control.value) || control.value < min || control.value > max)) {
+            return { 'ageRange': true };
+        }
+        return null;
+    };
+  }
+
 
   btnFunc($event){ 
     alert("Alert!");
