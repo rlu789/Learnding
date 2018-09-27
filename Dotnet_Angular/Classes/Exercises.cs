@@ -8,6 +8,35 @@ namespace Dotnet_Angular.Classes
 {
     public class Exercises
     {
+        // TODO refine for extreme inputs
+        public static long ConstructArray(int n, int k, int x) {
+            // n = array length
+            // k = range of numbers
+            // x = final element in array
+            List<int> previousNumbers = new List<int>(new int[] {1});
+
+            for (int i = 0; i < n - 1; i++){
+                if (i == n - 2){
+                    for (int j = 0; j < previousNumbers.Count; j++){
+                        if (previousNumbers[j] == x) previousNumbers.RemoveAt(j);
+                    }
+                    break;
+                }
+
+                List<int> currentNumbers = new List<int>();
+                foreach (int num in previousNumbers){
+                    for (int j = 1; j <= k; j++){
+                        if (num != j) currentNumbers.Add(j);
+                    }
+                }
+
+                previousNumbers = new List<int>(currentNumbers);
+                currentNumbers.Clear();
+            }
+
+            return previousNumbers.Count;
+        }
+
         public static int Pairs(int difference, List<int> input){
             input = input.Distinct().ToList();
             input.Sort((a, b) => -1* a.CompareTo(b));

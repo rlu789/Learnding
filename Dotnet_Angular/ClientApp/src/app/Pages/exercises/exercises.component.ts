@@ -8,6 +8,38 @@ import { Component, OnInit } from '@angular/core';
 export class ExercisesComponent implements OnInit {
   exercises = [
     {
+      name: 'Construct Array',
+      desc: '<p>Given <b>array length</b>, <b>range</b> and the <b>final value in an array</b> inputs, it should be possible to construct an array such that consecutive positions contain different values.' +
+      ' The range of these values is determined by the <b>range</b> input i.e. 1 - <b>range</b></p>' +
+      '<p>Return the <b>number of ways the array can be constructed</b> given these inputs.</p>',
+      buttons: [
+        {
+          text: 'Construct',
+          apiPath: '/constructArray',
+        }
+      ],
+      inputs: [
+        {
+          payload: '',
+          payloadName: 'length',
+          inputType: 'number',
+          placeholder: 'Length'
+        },
+        {
+          payload: '',
+          payloadName: 'range',
+          inputType: 'number',
+          placeholder: 'Range'
+        },
+        {
+          payload: '',
+          payloadName: 'final',
+          inputType: 'number',
+          placeholder: 'Final Value in Array'
+        }
+      ]
+    },
+    {
       name: 'Pairs',
       desc: '<p>Given an <b>array of integers</b> and a <b>target value</b>, compute the number of pairs in the array that have a difference equal to the target value </p>'+
       '<p><i>E.g.:</i> [1, 2, 3, 4] results in an answer of <b>3</b></p>',

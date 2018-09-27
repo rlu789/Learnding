@@ -102,6 +102,17 @@ namespace Dotnet_Angular.Controllers
             return Execute(() => Exercises.Pairs(body.difference, body.input));
         }
 
+        public class ConstructArrayBody{
+            public int length { get; set; }
+            public int range { get; set; }
+            public int final { get; set; }
+        }
+        [HttpPost("constructArray")]
+        public StringResult ConstructArray([FromBody] ConstructArrayBody body)
+        {
+            return Execute(() => Exercises.ConstructArray(body.length, body.range, body.final));
+        }
+
         [HttpPost("test")]
         public string Test([FromBody] int duration)
         {
