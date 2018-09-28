@@ -22,22 +22,10 @@ export class ComponentLibraryComponent implements OnInit {
       ]),
     });
     this.formGroup1 = new FormGroup({
-      'validator': new FormControl(this.formGroup4Text, [
-        this.ageRangeValidator(10, 20)
-      ]),
+      'validator': new FormControl(this.formGroup4Text, []),
     });
   }
-
-  ageRangeValidator(min: number, max: number): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
-        if (control.value !== undefined && (isNaN(control.value) || control.value < min || control.value > max)) {
-            return { 'ageRange': true };
-        }
-        return null;
-    };
-  }
-
-
+  
   btnFunc($event){ 
     alert("Alert!");
     $event.complete();

@@ -4,4 +4,10 @@
     <app-custom-text [type]="'number'" [formGroup]="customTextTwo.formGroup" [placeholder]="customTextTwo.placeholder" [hint]="customTextTwo.hint"></app-custom-text>
     <app-custom-text [formGroup]="customTextThree.formGroup" [placeholder]="customTextThree.placeholder" [hint]="customTextThree.hint"></app-custom-text>
     
+    <app-custom-alert [type]="customTextFour.formGroup.get('validator').value" [title] = "'Dynamic Alert'">
+        <p>{{customTextFive.formGroup.get('validator').value}}</p>
+    </app-custom-alert>
+    <app-custom-text [formGroup]="customTextFour.formGroup" [placeholder]="customTextFour.placeholder" [hint]="customTextFour.hint"></app-custom-text>
+    <app-custom-text [formGroup]="customTextFive.formGroup" [placeholder]="customTextFive.placeholder" [hint]="customTextFive.hint"></app-custom-text>
+
 </div>

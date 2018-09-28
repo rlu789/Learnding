@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-custom-alert',
@@ -12,25 +12,32 @@ export class CustomAlertComponent implements OnInit {
   @Input('isVisible') isVisible: boolean;
   @Input('dismissible') dismissible: boolean;
   typeClass: string;
-  iconClass = 'icon ';
+  iconClass: string;
 
   constructor() {
   }
 
   ngOnInit() {
     this.isVisible = this.isVisible !== undefined ? this.isVisible: true;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setClasses();
+  }
+
+  setClasses(){
     switch (this.type) {
       case 'i':
         this.typeClass = 'info';
-        this.iconClass += 'fas fa-info-circle fa-2x';
+        this.iconClass = 'icon fas fa-info-circle fa-2x';
         break;
       case 'w':
         this.typeClass = 'warning';
-        this.iconClass += 'fas fa-exclamation-circle fa-2x';
+        this.iconClass = 'icon fas fa-exclamation-circle fa-2x';
         break;
       case 's':
         this.typeClass = 'success';
-        this.iconClass += 'fas fa-check-circle fa-2x';
+        this.iconClass = 'icon fas fa-check-circle fa-2x';
       default:
         break;
     }

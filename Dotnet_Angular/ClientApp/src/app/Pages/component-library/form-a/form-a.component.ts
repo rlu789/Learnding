@@ -34,6 +34,20 @@ export class FormAComponent implements OnInit {
     }),
     hint: 'Errors if first two inputs and incorrect'
   }
+  customTextFour = {
+    placeholder: 'Alert Type',
+    formGroup: new FormGroup({
+      'validator': new FormControl('i', []),
+    }),
+    hint: 'Input either an "i", "w" or "s" to change the type of the alert'
+  }
+  customTextFive = {
+    placeholder: 'Alert Text',
+    formGroup: new FormGroup({
+      'validator': new FormControl('This is a dynamic alert. Feel free to change me below.', []),
+    }),
+    hint: 'Sets the content of the alert'
+  }
 
   ageRangeValidator(min: number, max: number): ValidatorFn {
     return (control: AbstractControl): { [key: string]: boolean } | null => {

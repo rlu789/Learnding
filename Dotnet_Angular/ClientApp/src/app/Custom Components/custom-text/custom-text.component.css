@@ -3,7 +3,7 @@
 }
 
 .custom-text{
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   margin-top: 20px;
 }
 
@@ -40,6 +40,7 @@
 .custom-text-inner input {
   border-radius: 0;
   border: none;
+  color: black;
 }
 
 .custom-text-placeholder {
