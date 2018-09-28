@@ -2,5 +2,7 @@
   <span [ngClass]=iconClass></span>
   <button *ngIf="dismissible" type="button" class="close fas fa-times" (click)='dismiss()'></button>
   <h3 *ngIf="title">{{title}}</h3>
-  <div class='content' [innerHtml]="content"></div>
+  <div class='content'>
+    <ng-content></ng-content>
+  </div>
 </div>

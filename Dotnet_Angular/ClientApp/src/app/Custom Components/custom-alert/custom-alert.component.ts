@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CustomAlertComponent implements OnInit {
   @Input('title') title: string;
-  @Input('content') content: string;
+  //@Input('content') content: string; // this should now be handled by ng-content
   @Input('type') type: string;
   @Input('isVisible') isVisible: boolean;
   @Input('dismissible') dismissible: boolean;
