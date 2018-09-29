@@ -1,6 +1,7 @@
 <div class="container">
     <h3>Radio</h3>
-    <app-custom-radio></app-custom-radio>
+    <app-custom-radio [formGroup]="radioOptionsFormGroup" [radioOptions]="radioOptions"></app-custom-radio>
+    <app-custom-radio [formGroup]="radioOptionsFormGroup2" [radioOptions]="radioOptions2"></app-custom-radio>
 
     <h3>Alert</h3>
     <app-custom-alert [type]="'i'" [title] = "'Information'">

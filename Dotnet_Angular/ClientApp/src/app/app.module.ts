@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgMode
 import { RouterModule, Routes } from '@angular/router';
 
 import { ExercisesService } from './Services/exercises.service';
+import { IdManagerService } from './Injectables/id-manager.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -68,6 +69,7 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule
   ],
   providers: [
+    IdManagerService,
     ExercisesService
   ],
   bootstrap: [AppComponent]

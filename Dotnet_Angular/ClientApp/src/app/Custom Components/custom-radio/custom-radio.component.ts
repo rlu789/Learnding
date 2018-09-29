@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { IdManagerService } from '../../Injectables/id-manager.service'
 
 @Component({
   selector: 'app-custom-radio',
@@ -7,24 +8,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./custom-radio.component.css']
 })
 export class CustomRadioComponent implements OnInit {
-  radioOptions = [
-    {
-      text: 'Yes',
-      value: 'Y'
-    },
-    {
-      text: 'No',
-      value: 'N'
-    }
-  ]
+  @Input('radioOptions') radioOptions: {text: string, value: string}[];
+  @Input('formGroup') formGroup: FormGroup;
+  radioId: string
 
-  form = new FormGroup({
-    boolean: new FormControl('Y'),
-  });
-  
-  constructor() { }
+  constructor(private idManagerService: IdManagerService) { }
 
   ngOnInit() {
+    this.radioId = this.idManagerService.generateId('radio-');
+    console.log(this.radioId);
   }
 
 }

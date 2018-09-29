@@ -8,6 +8,19 @@ import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from
   styleUrls: ['./component-library.component.css']
 })
 export class ComponentLibraryComponent implements OnInit {
+  radioOptions = [{text: 'Yes',value: 'Y'},{ text: 'No', value: 'N' }];
+  radioOptionsFormGroup = new FormGroup({
+    'validator': new FormControl('Y', [
+      Validators.required,
+    ]),
+  });
+  radioOptions2 = [{text: 'One',value: '1'},{ text: 'Two', value: '2' },{ text: 'Three', value: '3' }];
+  radioOptionsFormGroup2 = new FormGroup({
+    'validator': new FormControl('', [
+      Validators.required,
+    ]),
+  });
+
   formGroup1: any;
   formGroup4: any;
   formGroup4Text = '';

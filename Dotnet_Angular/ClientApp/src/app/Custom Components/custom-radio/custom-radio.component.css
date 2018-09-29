@@ -15,7 +15,7 @@
 }
 
 .custom-input-group label {
-  padding: 7px 28px;
+  padding: 4px 26px;
   width: 100%;
   display: block;
   text-align: left;
@@ -27,7 +27,7 @@
   overflow: hidden;
   border: 1px solid;
   border-radius: 4px;
-  height: 50px;
+  height: 45px;
   margin-bottom: 0; /* Override defaults */
 }
 
@@ -48,8 +48,8 @@
 }
 
 .custom-input-group label:after {
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   content: '';
   /* border: 2px solid #D1D7DC; */
   background-color: #fff;
@@ -68,8 +68,10 @@
   /* Combined with css in .input-group input:checked~label:after */
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  padding: 0 0 0 7px;
+  padding: 0 0 0 5px;
   color: #37474f;
+  /* Used as a 'top' value for the check icon */
+  line-height: 28px;
 }
 
 .custom-input-group input:checked~label {

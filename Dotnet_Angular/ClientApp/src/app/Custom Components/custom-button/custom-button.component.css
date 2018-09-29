@@ -3,10 +3,10 @@
 }
 
 .custom-button {    
-	min-width: 150px;
+	min-width: 165px;
 	max-width: 300px;
   margin: 10px 10px 18px 0px;
-  padding: 8px 12px 8px 12px;
+  padding: 9px 12px 9px 12px;
   border-radius: 2px;
   border: 1px solid;
 	background: none;
@@ -77,4 +77,11 @@
 	display: block;
 	animation-name: fadeIn;
 	animation-duration: 0.5s;
+}
+
+@media only screen and (max-width: 768px) {
+  .custom-button {
+    max-width: initial;
+    width: 100%;
+  }
 }
