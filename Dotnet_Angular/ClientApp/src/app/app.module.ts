@@ -19,6 +19,7 @@ import { FormAComponent } from './Pages/component-library/form-a/form-a.componen
 import { CustomTextComponent } from './Custom Components/custom-text/custom-text.component';
 import { CustomButtonComponent } from './Custom Components/custom-button/custom-button.component';
 import { CustomAlertComponent } from './Custom Components/custom-alert/custom-alert.component';
+import { CustomSelectComponent } from './Custom Components/custom-select/custom-select.component';
 
 const appRoutes: Routes = [
   {
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
     CustomTextComponent,
     CustomButtonComponent,
     CustomAlertComponent,
+    CustomSelectComponent,
   ],
   imports: [
     RouterModule.forRoot(

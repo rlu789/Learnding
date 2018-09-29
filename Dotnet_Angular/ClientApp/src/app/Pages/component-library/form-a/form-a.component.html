@@ -7,7 +7,12 @@
     <app-custom-alert [type]="customTextFour.formGroup.get('validator').value" [title] = "'Dynamic Alert'">
         <p>{{customTextFive.formGroup.get('validator').value}}</p>
     </app-custom-alert>
-    <app-custom-text [formGroup]="customTextFour.formGroup" [placeholder]="customTextFour.placeholder" [hint]="customTextFour.hint"></app-custom-text>
-    <app-custom-text [formGroup]="customTextFive.formGroup" [placeholder]="customTextFive.placeholder" [hint]="customTextFive.hint"></app-custom-text>
-
+    <div class='row'>
+        <div class="col">
+            <app-custom-text [formGroup]="customTextFour.formGroup" [placeholder]="customTextFour.placeholder" [hint]="customTextFour.hint"></app-custom-text>
+        </div>
+        <div class="col">
+            <app-custom-text [formGroup]="customTextFive.formGroup" [placeholder]="customTextFive.placeholder" [hint]="customTextFive.hint"></app-custom-text>
+        </div>
+    </div>
 </div>
