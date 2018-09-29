@@ -20,6 +20,7 @@ import { CustomTextComponent } from './Custom Components/custom-text/custom-text
 import { CustomButtonComponent } from './Custom Components/custom-button/custom-button.component';
 import { CustomAlertComponent } from './Custom Components/custom-alert/custom-alert.component';
 import { CustomSelectComponent } from './Custom Components/custom-select/custom-select.component';
+import { CustomRadioComponent } from './Custom Components/custom-radio/custom-radio.component';
 
 const appRoutes: Routes = [
   {
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     CustomButtonComponent,
     CustomAlertComponent,
     CustomSelectComponent,
+    CustomRadioComponent,
   ],
   imports: [
     RouterModule.forRoot(

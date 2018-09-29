@@ -1,0 +1,9 @@
+<div [formGroup]="form" class="custom-radio">
+  <div class="custom-input-group" *ngFor="let option of radioOptions">
+    <input [id]="option.value" formControlName="boolean" type="radio" [value]="option.value"/>
+    <label [for]="option.value">{{option.text}}</label>
+  </div>
+</div>
+
+<p>Form value: {{ form.value | json }}</p> <!-- {food: 'lamb' } -->
+

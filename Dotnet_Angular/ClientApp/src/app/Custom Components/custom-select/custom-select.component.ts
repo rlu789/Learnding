@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-custom-select',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./custom-select.component.css']
 })
 export class CustomSelectComponent implements OnInit {
+  @Input('data') data: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClick(){
+    console.log(this.data);
+  }
 }
