@@ -1,9 +1,11 @@
+<div *ngIf="label">{{label}}</div>
 <div [formGroup]="formGroup" class="custom-radio">
   <div class="custom-input-group" *ngFor="let option of radioOptions">
     <input [id]="radioId + option.value" formControlName="validator" type="radio" [value]="option.value"/>
-    <label [for]="radioId + option.value">{{option.text}}</label>
+    <label [for]="radioId + option.value">
+      <div class='custom-input-group-text'>{{option.text}}</div>
+    </label>
   </div>
 </div>
 
-<p>Form value: {{ formGroup.get('validator').value }}</p>
-
+<!-- <p>Form value: {{ formGroup.get('validator').value }}</p> -->

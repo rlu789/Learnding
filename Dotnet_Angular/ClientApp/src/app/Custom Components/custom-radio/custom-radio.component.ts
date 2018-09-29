@@ -10,6 +10,7 @@ import { IdManagerService } from '../../Injectables/id-manager.service'
 export class CustomRadioComponent implements OnInit {
   @Input('radioOptions') radioOptions: {text: string, value: string}[];
   @Input('formGroup') formGroup: FormGroup;
+  @Input('label') label: string;
   radioId: string
 
   constructor(private idManagerService: IdManagerService) { }

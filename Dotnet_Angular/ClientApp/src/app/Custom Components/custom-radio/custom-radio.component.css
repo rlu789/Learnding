@@ -1,7 +1,5 @@
 .custom-radio {
   padding: 0 16px 0 0;
-  font-size: 18px;
-  font-weight: 600;
   line-height: 36px;
 }
 
@@ -102,6 +100,11 @@
   transform: translateY(-50%);
   cursor: pointer;
   visibility: hidden;
+}
+
+custom-input-group-text{
+  width: 85%;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 768px) {

@@ -35,11 +35,11 @@ export class FormAComponent implements OnInit {
     hint: 'Errors if first two inputs and incorrect'
   }
   customTextFour = {
-    placeholder: 'Alert Type',
+    label: 'Alert Type',
     formGroup: new FormGroup({
       'validator': new FormControl('i', []),
     }),
-    hint: 'Input either an "i", "w" or "s" to change the type of the alert'
+    radioOptions: [{text: 'Warning',value: 'w'},{ text: 'Information', value: 'i' },{ text: 'Success', value: 's' }]
   }
   customTextFive = {
     placeholder: 'Alert Text',
