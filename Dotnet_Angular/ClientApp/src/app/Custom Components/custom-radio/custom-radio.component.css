@@ -9,11 +9,11 @@
   margin: 10px 5px 10px 0;
   position: relative;
   display: inline-block;
-  width: 200px; /* Not a precentage for responsive reasons */
+  min-width: 200px; /* Not a precentage for responsive reasons, min so that div can expand with more text */
 }
 
 .custom-input-group label {
-  padding: 4px 26px;
+  padding: 4px 50px 4px 25px;
   width: 100%;
   display: block;
   text-align: left;
