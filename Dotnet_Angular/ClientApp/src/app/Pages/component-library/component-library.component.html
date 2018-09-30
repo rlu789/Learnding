@@ -29,6 +29,6 @@
     <app-custom-text [formGroup]="formGroup4" [placeholder]="'Input'" [hint]="'Errors if input is less than 3 length'"></app-custom-text>
     
     <h3>Select</h3>
-    <app-custom-select [data]='1'></app-custom-select>
-    <app-custom-select [data]='2'></app-custom-select>
+    <app-custom-select [formGroup]="radioOptionsFormGroup" [selectOptions]="radioOptions"></app-custom-select>
+    <app-custom-select [formGroup]="radioOptionsFormGroup2" [selectOptions]="radioOptions2"></app-custom-select>
 </div>

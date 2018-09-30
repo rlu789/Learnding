@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { IdManagerService } from '../../Injectables/id-manager.service'
 
 @Component({
   selector: 'app-custom-select',
@@ -6,14 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./custom-select.component.css']
 })
 export class CustomSelectComponent implements OnInit {
-  @Input('data') data: string;
+  @Input('selectOptions') selectOptions: any[];
+  @Input('formGroup') formGroup: FormGroup;
+  selectId: string
 
-  constructor() { }
+  constructor(private idManagerService: IdManagerService) { }
 
   ngOnInit() {
-  }
-
-  onClick(){
-    console.log(this.data);
+    this.selectId = this.idManagerService.generateId('select-');
   }
 }

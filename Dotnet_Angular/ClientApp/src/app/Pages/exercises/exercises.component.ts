@@ -6,7 +6,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exercises.component.css']
 })
 export class ExercisesComponent implements OnInit {
+  arrayFormatFunc = function (payload: string) {
+    return payload.split(' ');
+  }
+
   exercises = [
+    {
+      name: 'Sorting',
+      desc: '',
+      buttons: [
+        {
+          text: 'Bubble',
+          apiPath: '/bubble',
+        }
+      ],
+      inputs: [
+        {
+          payload: '',
+          payloadName: 'arr',
+          inputType: 'text',
+          placeholder: 'Array',
+          formatFunc: this.arrayFormatFunc
+        },
+      ]
+    },
     {
       name: 'Construct Array',
       desc: '<p>Given <b>array length</b>, <b>range</b> and the <b>final value in an array</b> inputs, it should be possible to construct an array such that consecutive positions contain different values.' +
@@ -60,9 +83,7 @@ export class ExercisesComponent implements OnInit {
           payload: '',
           payloadName: 'input',
           inputType: 'text',
-          formatFunc: function (payload: string) {
-            return payload.split(' ');
-          }
+          formatFunc: this.arrayFormatFunc
         }
       ]
     },
@@ -87,9 +108,7 @@ export class ExercisesComponent implements OnInit {
           payload: '',
           payloadName: 'input',
           inputType: 'text',
-          formatFunc: function (payload: string) {
-            return payload.split(' ');
-          }
+          formatFunc: this.arrayFormatFunc
         }
       ]
     },
@@ -131,18 +150,14 @@ export class ExercisesComponent implements OnInit {
           payloadName: 'itemSetOne',
           inputType: 'text',
           placeholder: 'Item Shop Set 1',
-          formatFunc: function (payload: string) {
-            return payload.split(' ');
-          }
+          formatFunc: this.arrayFormatFunc
         },
         {
           payload: '',
           payloadName: 'itemSetTwo',
           inputType: 'text',
           placeholder: 'Item Shop Set 2',
-          formatFunc: function (payload: string) {
-            return payload.split(' ');
-          }
+          formatFunc: this.arrayFormatFunc
         }
       ],
     },
@@ -160,9 +175,7 @@ export class ExercisesComponent implements OnInit {
           payload: '',
           payloadName: 'input',
           inputType: 'text',
-          formatFunc: function (payload: string) {
-            return payload.split(' ');
-          }
+          formatFunc: this.arrayFormatFunc
         }
       ],
     },
