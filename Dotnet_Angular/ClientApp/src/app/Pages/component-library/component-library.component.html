@@ -1,4 +1,7 @@
 <div class="container">
+    <h3>Modal</h3>
+    <app-custom-button (clickFunc) = 'modal($event)' [text] = "'Open Modal'"></app-custom-button>
+
     <h3>Select</h3>
     <app-custom-select [formGroup]="selectOptionsFormGroup" [selectOptions]="selectOptions"></app-custom-select>
     <!-- <app-custom-select [formGroup]="radioOptionsFormGroup2" [selectOptions]="radioOptions2"></app-custom-select> -->

@@ -17,11 +17,15 @@ import { ExercisesComponent } from './Pages/exercises/exercises.component';
 import { ExerciseComponent } from './Components/exercise-component/exercise-component.component';
 import { ComponentLibraryComponent } from './Pages/component-library/component-library.component';
 import { FormAComponent } from './Pages/component-library/form-a/form-a.component';
+
 import { CustomTextComponent } from './Custom Components/custom-text/custom-text.component';
 import { CustomButtonComponent } from './Custom Components/custom-button/custom-button.component';
 import { CustomAlertComponent } from './Custom Components/custom-alert/custom-alert.component';
 import { CustomSelectComponent } from './Custom Components/custom-select/custom-select.component';
 import { CustomRadioComponent } from './Custom Components/custom-radio/custom-radio.component';
+import { DomService } from './Custom Components/custom-modal/dom.service';
+import { ModalService } from './Custom Components/custom-modal/modal.service';
+import { CustomModalComponent } from './Custom Components/custom-modal/custom-modal.component';
 
 const appRoutes: Routes = [
   {
@@ -51,6 +55,7 @@ const appRoutes: Routes = [
     CustomAlertComponent,
     CustomSelectComponent,
     CustomRadioComponent,
+    CustomModalComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -70,7 +75,9 @@ const appRoutes: Routes = [
   ],
   providers: [
     IdManagerService,
-    ExercisesService
+    ExercisesService,
+    DomService,
+    ModalService
   ],
   bootstrap: [AppComponent]
 })

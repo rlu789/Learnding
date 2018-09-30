@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ExercisesService } from '../../Services/exercises.service';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { ModalService } from '../../Custom Components/custom-modal/modal.service';
+import { FormAComponent } from './form-a/form-a.component';
 
 @Component({
   selector: 'app-component-library',
@@ -32,7 +34,8 @@ export class ComponentLibraryComponent implements OnInit {
   formGroup4: any;
   formGroup4Text = '';
 
-  constructor(private exercisesService: ExercisesService) { }
+  constructor(private exercisesService: ExercisesService,
+    private modalService: ModalService) { }
 
   ngOnInit() {
     this.formGroup4 = new FormGroup({
@@ -46,6 +49,14 @@ export class ComponentLibraryComponent implements OnInit {
     });
   }
   
+  modal($event){ 
+    let inputs = {
+      isMobile: false
+    }
+    this.modalService.init(FormAComponent, inputs, {});
+    $event.complete();
+  }
+
   btnFunc($event){ 
     alert("Alert!");
     $event.complete();

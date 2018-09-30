@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ExercisesService } from '../../Services/exercises.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
+import { ModalService } from '../../Custom Components/custom-modal/modal.service';
+import { ComponentLibraryComponent } from '../component-library/component-library.component'
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,7 +14,8 @@ export class HomeComponent implements OnInit {
   duration: number;
   result: string;
   loading = false;
-  constructor(private exercisesService: ExercisesService) { }
+  constructor(private exercisesService: ExercisesService, 
+    private modalService: ModalService) { }
 
   ngOnInit() {
   }
@@ -31,4 +35,10 @@ export class HomeComponent implements OnInit {
       );
   }
 
+  modal(){
+    let inputs = {
+      isMobile: false
+    }
+    this.modalService.init(ComponentLibraryComponent, inputs, {});
+  }
 }
