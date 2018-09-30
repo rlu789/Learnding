@@ -21,6 +21,13 @@ export class ComponentLibraryComponent implements OnInit {
     ]),
   });
 
+  selectOptions = [{text: 'One',value: '1'},{ text: 'Two', value: '2' },{ text: 'Three', value: '3' }];
+  selectOptionsFormGroup = new FormGroup({
+    'validator': new FormControl('', [
+      Validators.required,
+    ]),
+  });
+
   formGroup1: any;
   formGroup4: any;
   formGroup4Text = '';

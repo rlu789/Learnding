@@ -1,4 +1,7 @@
 <div class="container">
+    <h3>Select</h3>
+    <app-custom-select [formGroup]="selectOptionsFormGroup" [selectOptions]="selectOptions"></app-custom-select>
+    <!-- <app-custom-select [formGroup]="radioOptionsFormGroup2" [selectOptions]="radioOptions2"></app-custom-select> -->
     <h3>Radio</h3>
     <app-custom-radio [formGroup]="radioOptionsFormGroup" [radioOptions]="radioOptions"></app-custom-radio>
     <app-custom-radio [formGroup]="radioOptionsFormGroup2" [radioOptions]="radioOptions2"></app-custom-radio>
@@ -28,7 +31,4 @@
     <app-custom-text [placeholder]="'Input'" [prefix]="'$'" [suffix]="'.00'" [hint]="'A helpful hint'"></app-custom-text>
     <app-custom-text [formGroup]="formGroup4" [placeholder]="'Input'" [hint]="'Errors if input is less than 3 length'"></app-custom-text>
     
-    <h3>Select</h3>
-    <app-custom-select [formGroup]="radioOptionsFormGroup" [selectOptions]="radioOptions"></app-custom-select>
-    <app-custom-select [formGroup]="radioOptionsFormGroup2" [selectOptions]="radioOptions2"></app-custom-select>
 </div>

@@ -1,64 +1,21 @@
-<span class="custom-dropdown">
-  <select (click) = "onClick()">    
-      <option>Sherlock Holmes</option>
-      <option>The Great Gatsby</option>  
-      <option>V for Vendetta</option>
-      <option>The Wolf of Wallstreet</option>
-      <option>Quantum of Solace</option>
-  </select>
-</span>
-
-<!-- <label class="custom-select" for="styledSelect1"><select id="styledSelect1" name="options">
-  <option value="">
-    Select an option
-  </option>
-  <option value="1">
-    Option 1
-  </option>
-  <option value="2">
-    Option 2
-  </option>
-  <option value="3">
-    Option 3
-  </option>
-  <option value="4">
-    Option 4
-  </option>
-</select></label> -->
-
-<!-- {{value}}
-<ul class="custom-select">
+<ul class="custom-select" [formGroup]="formGroup">
   <li>
-    <input class="select_close" type="radio" name="awesomeness" id="awesomeness-close" [(value)]="value" />
-    <span class="select_label select_label-placeholder">Awesomeness Level</span>
+    <input class="select-close" type="radio" formControlName="validator" id="select-close" [value]='undefined' />
+    <span class="select-label select-label-placeholder">-- Select --</span>
   </li>
 
-  <li class="select_items">
-    <input class="select_expand" type="radio" name="awesomeness" id="awesomeness-opener" value='1'/>
-    <label class="select_closeLabel" for="awesomeness-close"></label>
+  <li class="select-items">
+    <input class="select-expand" type="radio" formControlName="validator" id="select-opener" value=' '/>
+    <label class="select-closeLabel" for="select-close"></label>
 
-    <ul class="select_options">
-      <li class="select_option">
-        <input class="select_input" type="radio" name="awesomeness" id="awesomeness-ridiculous" value='1'/>
-        <label class="select_label" for="awesomeness-ridiculous">ridiculous</label>
-      </li>
-
-      <li class="select_option">
-        <input class="select_input" type="radio" name="awesomeness" id="awesomeness-reasonable" />
-        <label class="select_label" for="awesomeness-reasonable">reasonable</label>
-      </li>
-
-      <li class="select_option">
-        <input class="select_input" type="radio" name="awesomeness" id="awesomeness-lacking" />
-        <label class="select_label" for="awesomeness-lacking">lacking</label>
-      </li>
-
-      <li class="select_option">
-        <input class="select_input" type="radio" name="awesomeness" id="awesomeness-awesomeless" />
-        <label class="select_label" for="awesomeness-awesomeless">awesomeless</label>
+    <ul class="select-options">
+      <li class="select-option" *ngFor="let select of selectOptions">
+        <input class="select-input" type="radio" formControlName="validator" [id]="componentId + select.value" [value]="select.value"/>
+        <label class="select-label" [for]="componentId + select.value">{{select.text}}</label>
       </li>
     </ul>
 
-    <label class="select_expandLabel" for="awesomeness-opener"></label>
+    <label class="select-expandLabel" for="select-opener"></label>
   </li>
-</ul> -->
+</ul>
+<p>Form value: {{ formGroup.get('validator').value }}</p>

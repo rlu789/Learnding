@@ -10,11 +10,11 @@ import { IdManagerService } from '../../Injectables/id-manager.service'
 export class CustomSelectComponent implements OnInit {
   @Input('selectOptions') selectOptions: any[];
   @Input('formGroup') formGroup: FormGroup;
-  selectId: string
+  componentId: string
 
   constructor(private idManagerService: IdManagerService) { }
 
   ngOnInit() {
-    this.selectId = this.idManagerService.generateId('select-');
+    this.componentId = this.idManagerService.generateId('select-');
   }
 }
