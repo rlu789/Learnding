@@ -4,6 +4,7 @@
     <app-custom-accordion [dataSet]='accordionDataSet' [contentView]="content" [multipleOpenable]='true' [title]="'Accordion (Can open mulitple records)'"></app-custom-accordion>
     <ng-template #content>
         <app-custom-text [formGroup]="accordionDataSet[0]" [placeholder]="'Input'"></app-custom-text>
+        <app-custom-button (clickFunc)='accordionSubmit($event)' [text]="'Submit'"></app-custom-button>
     </ng-template>
 
     <h3>Modal</h3>

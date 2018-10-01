@@ -20,7 +20,11 @@ export class ComponentLibraryComponent implements OnInit {
       Validators.required
     ]),
   });
-  accordionDataSet = [this.formGroupAccordion, this.formGroupAccordion2]
+  accordionDataSet = [this.formGroupAccordion, this.formGroupAccordion2];
+  accordionSubmit($event){ 
+    alert("Field value: " + this.formGroupAccordion.get('validator').value);
+    $event.complete();
+  }
 
   radioOptions = [{text: 'Yes',value: 'Y'},{ text: 'No', value: 'N' }];
   radioOptionsFormGroup = new FormGroup({
