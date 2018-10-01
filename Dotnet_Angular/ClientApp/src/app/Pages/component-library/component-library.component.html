@@ -1,6 +1,10 @@
 <div class="container">
     <h3>Accordian</h3>
-    <app-custom-accordion></app-custom-accordion>
+    <app-custom-accordion [dataSet]='accordionDataSet' [contentView]="content"></app-custom-accordion>
+    <app-custom-accordion [dataSet]='accordionDataSet' [contentView]="content" [multipleOpenable]='true' [title]="'Accordion (Can open mulitple records)'"></app-custom-accordion>
+    <ng-template #content>
+        <app-custom-text [formGroup]="accordionDataSet[0]" [placeholder]="'Input'"></app-custom-text>
+    </ng-template>
 
     <h3>Modal</h3>
     <app-custom-button (clickFunc) = 'modal($event)' [text] = "'Open Modal'"></app-custom-button>

@@ -10,6 +10,18 @@ import { FormAComponent } from './form-a/form-a.component';
   styleUrls: ['./component-library.component.css']
 })
 export class ComponentLibraryComponent implements OnInit {
+  formGroupAccordion = new FormGroup({
+    'validator': new FormControl('Prefilled', [
+      Validators.required
+    ]),
+  });
+  formGroupAccordion2 = new FormGroup({
+    'validator': new FormControl('Prefilled again', [
+      Validators.required
+    ]),
+  });
+  accordionDataSet = [this.formGroupAccordion, this.formGroupAccordion2]
+
   radioOptions = [{text: 'Yes',value: 'Y'},{ text: 'No', value: 'N' }];
   radioOptionsFormGroup = new FormGroup({
     'validator': new FormControl('Y', [
