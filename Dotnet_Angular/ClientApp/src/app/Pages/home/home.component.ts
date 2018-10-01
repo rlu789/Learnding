@@ -35,10 +35,10 @@ export class HomeComponent implements OnInit {
       );
   }
 
-  modal(){
-    let inputs = {
-      isMobile: false
-    }
-    this.modalService.init(ComponentLibraryComponent, inputs, {});
-  }
+  // modal(){
+  //   let inputs = {
+  //     isMobile: false
+  //   }
+  //   this.modalService.init(ComponentLibraryComponent, inputs, {});
+  // }
 }

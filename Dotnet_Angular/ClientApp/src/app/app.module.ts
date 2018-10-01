@@ -26,6 +26,7 @@ import { CustomRadioComponent } from './Custom Components/custom-radio/custom-ra
 import { DomService } from './Custom Components/custom-modal/dom.service';
 import { ModalService } from './Custom Components/custom-modal/modal.service';
 import { CustomModalComponent } from './Custom Components/custom-modal/custom-modal.component';
+import { CustomAccordionComponent } from './Custom Components/custom-accordian/custom-accordion.component';
 
 const appRoutes: Routes = [
   {
@@ -56,6 +57,7 @@ const appRoutes: Routes = [
     CustomSelectComponent,
     CustomRadioComponent,
     CustomModalComponent,
+    CustomAccordionComponent,
   ],
   imports: [
     RouterModule.forRoot(
