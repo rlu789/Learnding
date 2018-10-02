@@ -2,7 +2,7 @@
     <h3>Form</h3>
     <app-custom-text [formGroup]="customTextOne.formGroup" [placeholder]="customTextOne.placeholder" [hint]="customTextOne.hint"></app-custom-text>
     <app-custom-text [type]="'number'" [formGroup]="customTextTwo.formGroup" [placeholder]="customTextTwo.placeholder" [hint]="customTextTwo.hint"></app-custom-text>
-    <app-custom-text [formGroup]="customTextThree.formGroup" [placeholder]="customTextThree.placeholder" [hint]="customTextThree.hint"></app-custom-text>
+    <app-custom-text [type]="'number'" [formGroup]="customTextThree.formGroup" [placeholder]="customTextThree.placeholder" [hint]="customTextThree.hint"></app-custom-text>
     
     <app-custom-alert [type]="customTextFour.formGroup.get('validator').value" [title] = "'Dynamic Alert'">
         <p>{{customTextFive.formGroup.get('validator').value}}</p>
@@ -15,4 +15,6 @@
             <app-custom-text [formGroup]="customTextFive.formGroup" [placeholder]="customTextFive.placeholder" [hint]="customTextFive.hint"></app-custom-text>
         </div>
     </div>
+    <div style="height: 400px"></div>
+    <app-custom-button (clickFunc)='focus($event)' [text]="'Focus'"></app-custom-button>
 </div>

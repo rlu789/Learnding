@@ -8,5 +8,5 @@
     <div *ngIf="suffix" [innerHTML]="suffix"></div>
   </div>
   <span class='text-hint' *ngIf="hint" [innerHTML]="hint"></span>
-  <span class='error-text'>{{errorMessage || 'Error'}}</span>
+  <span class='error-text'>{{showErrors()}}</span>
 </div>

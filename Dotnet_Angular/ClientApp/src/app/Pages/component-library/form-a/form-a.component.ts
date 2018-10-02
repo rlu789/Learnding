@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 
 @Component({
@@ -20,7 +20,7 @@ export class FormAComponent implements OnInit {
     placeholder: 'Form Input 2',
     formGroup: new FormGroup({
       'validator': new FormControl('', [
-        this.ageRangeValidator(10, 20)
+        this.rangeValidator(10, 20)
       ]),
     }),
     hint: 'This field value must be between 10 and 20'
@@ -29,10 +29,11 @@ export class FormAComponent implements OnInit {
     placeholder: 'Form Input 3',
     formGroup: new FormGroup({
       'validator': new FormControl('', [
-        this.fromGroupsValidator(this.customTextOne.formGroup, this.customTextTwo.formGroup)
+        this.formGroupsValidator(this.customTextOne.formGroup, this.customTextTwo.formGroup),
+        this.rangeValidator(100, 200)
       ]),
     }),
-    hint: 'Errors if first two inputs and incorrect'
+    hint: 'Errors if first two inputs and incorrect AND input has to be between 100 and 200'
   }
   customTextFour = {
     label: 'Alert Type',
@@ -49,41 +50,58 @@ export class FormAComponent implements OnInit {
     hint: 'Sets the content of the alert'
   }
 
-  ageRangeValidator(min: number, max: number): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
+  rangeValidator(min: number, max: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: string } | null => {
         if (control.value !== undefined && (isNaN(control.value) || control.value < min || control.value > max)) {
-          return { 'ageRange': true };
+          return { 'range': 'Input must be between ' + min + ' and ' + max };
         } 
         return null;
     };
   }
 
-  fromGroupsValidator(form1: FormGroup, form2: FormGroup): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
-      form1.valueChanges.subscribe(changes => {
-        if (form1.invalid){
-          control.markAsTouched();
-        }
-        else control.markAsUntouched();
-        control.updateValueAndValidity();
-      });
-      form2.valueChanges.subscribe(changes => {
-        if (form2.invalid){
-          control.markAsTouched();
-        }
-        else control.markAsUntouched();
-        control.updateValueAndValidity();
-      });
-      if (form1.invalid || form2.invalid) {
-        return { 'invalidForms': true };
+  formGroupsValidator(form1: FormGroup, form2: FormGroup): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: string } | null => {
+      if (control.dirty){
+        form1.valueChanges.subscribe(changes => {
+          if (form1.invalid){
+            control.markAsTouched();
+            control.markAsDirty();
+          }
+          else {
+            control.markAsPristine();
+            control.markAsUntouched();
+          }
+          control.updateValueAndValidity();
+        });
+        form2.valueChanges.subscribe(changes => {
+          if (form2.invalid || changes.validator === ''){
+            control.markAsTouched();
+            control.markAsDirty();
+          }
+          else {
+            control.markAsPristine();
+            control.markAsUntouched();
+          }
+          control.updateValueAndValidity();
+        });
+      }
+      if (form1.invalid && form1.dirty || form2.invalid && form2.dirty) {
+        return { 'invalidForms': 'Cross form validation errors' };
       }
       return null;
     };
   }
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
+    // this.customTextOne.formGroup.markAsDirty();
+    // this.customTextOne.formGroup.markAsTouched();
+    // this.customTextOne.formGroup.updateValueAndValidity();
   }
 
+  focus($event){ 
+    document.getElementById(this.customTextOne.formGroup.get('componentId').value).scrollIntoView({behavior: "smooth"});
+    $event.complete();
+  }
 }

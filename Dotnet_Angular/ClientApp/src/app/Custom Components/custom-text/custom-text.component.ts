@@ -28,6 +28,27 @@ export class CustomTextComponent implements OnInit {
     this.formGroup.addControl('componentId', new FormControl(this.componentId, [ ]))
   }
 
+  showErrors() {
+    // YIKES
+    var self = this;
+    var errorString;
+    // console.log(this.formGroup.get('validator').errors);
+    if (this.formGroup.get('validator').errors){
+      Object.keys(this.formGroup.get('validator').errors).forEach(function(key) {
+          // console.log(self.formGroup.get('validator').errors[key]);
+          switch (key) {
+            case 'required':
+              errorString = 'This field is required';
+              return;
+            default:
+              break;
+          }
+          errorString = self.formGroup.get('validator').errors[key];
+      });
+    }
+    return errorString
+  }
+
   get validate() { return this.formGroup.get('validator'); }
 
 }
