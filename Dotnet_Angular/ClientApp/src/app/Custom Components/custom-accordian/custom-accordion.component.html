@@ -6,7 +6,7 @@
       <i></i>
       <div class="title">{{title || 'Accordion'}}</div>
       <div class='content'>
-          <ng-container [ngTemplateOutlet]="contentView"></ng-container>
+          <ng-container *ngTemplateOutlet="accordionRecordTemplate; context: {$implicit: data}"></ng-container>
       </div>
     </li>
   </ul>

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { IdManagerService } from '../../Injectables/id-manager.service'
 @Component({
   selector: 'app-custom-text',
   templateUrl: './custom-text.component.html',
@@ -14,8 +14,9 @@ export class CustomTextComponent implements OnInit {
   @Input('hint') hint: string;
   @Input('errorMessage') errorMessage: string;
   @Input('formGroup') formGroup: FormGroup;
+  componentId: string;
 
-  constructor() { }
+  constructor(private idManagerService: IdManagerService) { }
 
   ngOnInit() {
     if (!this.formGroup){
@@ -23,6 +24,8 @@ export class CustomTextComponent implements OnInit {
         'validator': new FormControl('', [ ]),
       });
     }
+    this.componentId = this.idManagerService.generateId('text-');
+    this.formGroup.addControl('componentId', new FormControl(this.componentId, [ ]))
   }
 
   get validate() { return this.formGroup.get('validator'); }

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, TemplateRef, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef, SimpleChanges, ContentChild } from '@angular/core';
+import { AccordionRecordDirective } from './accordion-record.directive';
 
 @Component({
   selector: 'app-custom-accordion',
@@ -6,8 +7,8 @@ import { Component, OnInit, Input, TemplateRef, SimpleChanges } from '@angular/c
   styleUrls: ['./custom-accordion.component.css']
 })
 export class CustomAccordionComponent implements OnInit {
+  @ContentChild(AccordionRecordDirective, {read: TemplateRef}) accordionRecordTemplate;
   @Input('title') title: string;
-  @Input('contentView') contentView: TemplateRef<any>;
   @Input('dataSet') dataSet: {}[];
   @Input('multipleOpenable') multipleOpenable: boolean;
   recordsOpened = [];

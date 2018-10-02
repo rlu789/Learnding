@@ -21,8 +21,8 @@ export class ComponentLibraryComponent implements OnInit {
     ]),
   });
   accordionDataSet = [this.formGroupAccordion, this.formGroupAccordion2];
-  accordionSubmit($event){ 
-    alert("Field value: " + this.formGroupAccordion.get('validator').value);
+  accordionSubmit($event, record: FormGroup){ 
+    alert("Field value: " + record.get('validator').value);
     $event.complete();
   }
 
