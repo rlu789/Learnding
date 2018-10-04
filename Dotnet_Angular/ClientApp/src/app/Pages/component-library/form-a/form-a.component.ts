@@ -40,7 +40,12 @@ export class FormAComponent implements OnInit {
     formGroup: new FormGroup({
       'validator': new FormControl('i', []),
     }),
-    radioOptions: [{text: 'Warning',value: 'w'},{ text: 'Information', value: 'i' },{ text: 'Success', value: 's' }]
+    radioOptions: [
+      { text: 'Warning', value: 'w' },
+      { text: 'Information', value: 'i' },
+      { text: 'Error', value: 'e' },
+      { text: 'Success', value: 's' }
+    ]
   }
   customTextFive = {
     placeholder: 'Alert Text',

@@ -35,6 +35,10 @@ export class CustomAlertComponent implements OnInit {
         this.typeClass = 'warning';
         this.iconClass = 'icon fas fa-exclamation-circle fa-2x';
         break;
+      case 'e':
+        this.typeClass = 'error';
+        this.iconClass = 'icon fas fa-times-circle fa-2x';
+        break;
       case 's':
         this.typeClass = 'success';
         this.iconClass = 'icon fas fa-check-circle fa-2x';

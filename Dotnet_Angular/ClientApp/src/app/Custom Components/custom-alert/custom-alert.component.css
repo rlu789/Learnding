@@ -2,6 +2,9 @@
     border-left: 6px solid #009ccc;
 }
 .warning{
+    border-left: 6px solid #ff7b00;
+}
+.error{
     border-left: 6px solid #fa371d;
 }
 .success{
@@ -27,6 +30,9 @@
     color: #009ccc;
 }
 .custom-alert.warning .icon{
+    color: #ff7b00;
+}
+.custom-alert.error .icon{
     color: #fa371d;
 }
 .custom-alert.success .icon{
@@ -43,6 +49,9 @@
     color: #009ccc;
 }
 .custom-alert.warning h3{
+    color: #ff7b00;
+}
+.custom-alert.error h3{
     color: #fa371d;
 }
 .custom-alert.success h3{
