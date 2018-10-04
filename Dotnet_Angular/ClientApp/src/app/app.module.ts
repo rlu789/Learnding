@@ -28,6 +28,7 @@ import { ModalService } from './Custom Components/custom-modal/modal.service';
 import { CustomModalComponent } from './Custom Components/custom-modal/custom-modal.component';
 import { CustomAccordionComponent } from './Custom Components/custom-accordian/custom-accordion.component';
 import { AccordionRecordDirective } from './Custom Components/custom-accordian/accordion-record.directive';
+import { CustomCheckboxComponent } from './Custom Components/custom-checkbox/custom-checkbox.component';
 
 const appRoutes: Routes = [
   {
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     CustomRadioComponent,
     CustomModalComponent,
     CustomAccordionComponent,
-    AccordionRecordDirective
+    AccordionRecordDirective,
+    CustomCheckboxComponent
   ],
   imports: [
     RouterModule.forRoot(
