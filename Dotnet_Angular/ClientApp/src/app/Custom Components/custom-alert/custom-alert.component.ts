@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-alert',
@@ -9,7 +10,7 @@ export class CustomAlertComponent implements OnInit {
   @Input('title') title: string;
   //@Input('content') content: string; // this should now be handled by ng-content
   @Input('type') type: string;
-  @Input('isVisible') isVisible: boolean;
+  @Input('isVisible') isVisible: boolean | FormGroup;
   @Input('dismissible') dismissible: boolean;
   typeClass: string;
   iconClass: string;
@@ -48,6 +49,10 @@ export class CustomAlertComponent implements OnInit {
   }
 
   dismiss(){
+    if (typeof this.isVisible === 'boolean')
       this.isVisible = false;
+    else{
+      this.isVisible.get('validator').setValue(false);
+    }
   }
 }

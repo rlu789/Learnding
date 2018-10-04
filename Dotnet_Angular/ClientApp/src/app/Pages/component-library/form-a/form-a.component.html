@@ -13,7 +13,7 @@
     [hint]="customTextThree.hint"></app-custom-text>
 
   <app-custom-checkbox [label]="customCheckbox.label" [formGroup]='customCheckbox.formGroup'></app-custom-checkbox>
-  <app-custom-alert [isVisible]="customCheckbox.formGroup.get('validator').value" [type]="customTextFour.formGroup.get('validator').value"
+  <app-custom-alert [dismissible]='true' [isVisible]="customCheckbox.formGroup" [type]="customTextFour.formGroup.get('validator').value"
     [title]="'Dynamic Alert'">
     <p>{{customTextFive.formGroup.get('validator').value}}</p>
   </app-custom-alert>
