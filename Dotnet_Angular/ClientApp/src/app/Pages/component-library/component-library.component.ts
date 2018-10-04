@@ -10,6 +10,15 @@ import { FormAComponent } from './form-a/form-a.component';
   styleUrls: ['./component-library.component.css']
 })
 export class ComponentLibraryComponent implements OnInit {
+  checkBox1 = {
+    label: 'A Checkbox',
+    formGroup:  new FormGroup({
+      'validator': new FormControl(true, [
+        Validators.required
+      ])
+    })
+  }
+
   formGroupAccordion = new FormGroup({
     'validator': new FormControl('Prefilled', [
       Validators.required

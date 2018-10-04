@@ -1,20 +1,30 @@
 <div class="container">
-    <h3>Form</h3>
-    <app-custom-text [formGroup]="customTextOne.formGroup" [placeholder]="customTextOne.placeholder" [hint]="customTextOne.hint"></app-custom-text>
-    <app-custom-text [type]="'number'" [formGroup]="customTextTwo.formGroup" [placeholder]="customTextTwo.placeholder" [hint]="customTextTwo.hint"></app-custom-text>
-    <app-custom-text [type]="'number'" [formGroup]="customTextThree.formGroup" [placeholder]="customTextThree.placeholder" [hint]="customTextThree.hint"></app-custom-text>
-    
-    <app-custom-alert [type]="customTextFour.formGroup.get('validator').value" [title] = "'Dynamic Alert'">
-        <p>{{customTextFive.formGroup.get('validator').value}}</p>
-    </app-custom-alert>
-    <div class='row'>
-        <div class="col">
-            <app-custom-radio [formGroup]="customTextFour.formGroup" [radioOptions]="customTextFour.radioOptions" [label]="customTextFour.label"></app-custom-radio>
-        </div>
-        <div class="col">
-            <app-custom-text [formGroup]="customTextFive.formGroup" [placeholder]="customTextFive.placeholder" [hint]="customTextFive.hint"></app-custom-text>
-        </div>
+  <h3>Form</h3>
+  <div class='row'>
+    <div class="col">
+      <app-custom-text [formGroup]="customTextOne.formGroup" [placeholder]="customTextOne.placeholder" [hint]="customTextOne.hint"></app-custom-text>
     </div>
-    <div style="height: 400px"></div>
-    <app-custom-button (clickFunc)='focus($event)' [text]="'Focus'"></app-custom-button>
+    <div class="col">
+      <app-custom-text [type]="'number'" [formGroup]="customTextTwo.formGroup" [placeholder]="customTextTwo.placeholder"
+        [hint]="customTextTwo.hint"></app-custom-text>
+    </div>
+  </div>
+  <app-custom-text [type]="'number'" [formGroup]="customTextThree.formGroup" [placeholder]="customTextThree.placeholder"
+    [hint]="customTextThree.hint"></app-custom-text>
+
+  <app-custom-checkbox [label]="customCheckbox.label" [formGroup]='customCheckbox.formGroup'></app-custom-checkbox>
+  <app-custom-alert [isVisible]="customCheckbox.formGroup.get('validator').value" [type]="customTextFour.formGroup.get('validator').value"
+    [title]="'Dynamic Alert'">
+    <p>{{customTextFive.formGroup.get('validator').value}}</p>
+  </app-custom-alert>
+  <div class='row'>
+    <div class="col">
+      <app-custom-radio [formGroup]="customTextFour.formGroup" [radioOptions]="customTextFour.radioOptions" [label]="customTextFour.label"></app-custom-radio>
+    </div>
+    <div class="col">
+      <app-custom-text [formGroup]="customTextFive.formGroup" [placeholder]="customTextFive.placeholder" [hint]="customTextFive.hint"></app-custom-text>
+    </div>
+  </div>
+  <div style="height: 400px"></div>
+  <app-custom-button (clickFunc)='focus($event)' [text]="'Focus'"></app-custom-button>
 </div>

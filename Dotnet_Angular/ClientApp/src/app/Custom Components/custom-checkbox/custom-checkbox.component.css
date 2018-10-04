@@ -29,7 +29,7 @@
   top: 6px;
   left: 4px;
   fill: none;
-  stroke: #FFFFFF;
+  stroke: #3C454C;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -58,14 +58,13 @@
 }
 
 .custom-checkbox:hover span:first-child {
-  border-color: #506EEC;
+  border-color: #02c1fc;
 }
 
 .custom-checkbox-input:checked+.custom-checkbox span:first-child {
-  background: #506EEC;
-  border-color: #506EEC;
+  background: #02c1fc;
+  border-color: #02c1fc;
   animation: wave 0.4s ease;
-  border: none;
 }
 
 .custom-checkbox-input:checked+.custom-checkbox span:first-child svg {
@@ -73,13 +72,13 @@
 }
 
 .custom-checkbox-input:checked+.custom-checkbox span:first-child:before {
-  transform: scale(3.5);
+  transform: scale(3);
   opacity: 0;
   transition: all 0.6s ease;
 }
 
 @keyframes wave {
   50% {
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
 }

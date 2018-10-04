@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { IdManagerService } from '../../Injectables/id-manager.service'
 
 @Component({
   selector: 'app-custom-checkbox',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./custom-checkbox.component.css']
 })
 export class CustomCheckboxComponent implements OnInit {
+  @Input('formGroup') formGroup: FormGroup;
+  @Input('label') label: string;
+  componentId: string
 
-  constructor() { }
+  constructor(private idManagerService: IdManagerService) { }
 
   ngOnInit() {
+    this.componentId = this.idManagerService.generateId('checkbox-');
   }
 
 }

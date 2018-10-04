@@ -1,6 +1,6 @@
 <div class="container">
   <h3>Checkbox</h3>
-  <app-custom-checkbox></app-custom-checkbox>
+  <app-custom-checkbox [label]="checkBox1.label" [formGroup]='checkBox1.formGroup'></app-custom-checkbox>
 
   <h3>Accordian</h3>
   <app-custom-accordion [dataSet]='accordionDataSet'>
@@ -25,7 +25,7 @@
   <!-- <app-custom-select [formGroup]="radioOptionsFormGroup2" [selectOptions]="radioOptions2"></app-custom-select> -->
   <h3>Radio</h3>
   <app-custom-radio [formGroup]="radioOptionsFormGroup" [radioOptions]="radioOptions"></app-custom-radio>
-  <app-custom-radio [formGroup]="radioOptionsFormGroup2" [radioOptions]="radioOptions2"></app-custom-radio>
+  <app-custom-radio [label]="'Pick One Option'" [formGroup]="radioOptionsFormGroup2" [radioOptions]="radioOptions2"></app-custom-radio>
 
   <h3>Alert</h3>
   <app-custom-alert [type]="'i'" [title]="'Information'">

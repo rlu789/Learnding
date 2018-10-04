@@ -1,9 +1,11 @@
-<input class="custom-checkbox-input" id="cbx" type="checkbox" style="display: none;" />
-<label class="custom-checkbox" for="cbx">
-  <span>
-    <svg width="12px" height="10px" viewbox="0 0 12 10">
-      <polyline points="1.5 6 4.5 9 12.5 0"></polyline>
-    </svg>
-  </span>
-  <span>Checkbox</span>
-</label>
+<div [formGroup]='formGroup'>
+  <input formControlName='validator' class="custom-checkbox-input" [id]="componentId" type="checkbox" style="display: none;" />
+  <label class="custom-checkbox" [for]="componentId">
+    <span>
+      <svg width="12px" height="10px" viewbox="0 0 12 10">
+        <polyline points="1.5 6 4.5 9 11.5 0"></polyline>
+      </svg>
+    </span>
+    <span>{{label}}</span>
+  </label>
+</div>

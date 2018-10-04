@@ -92,6 +92,12 @@ export class FormAComponent implements OnInit {
     };
   }
 
+  customCheckbox = {
+    label: 'Is Alert Visible?',
+    formGroup: new FormGroup({
+      'validator': new FormControl(true, []),
+    }),
+  }
   constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
