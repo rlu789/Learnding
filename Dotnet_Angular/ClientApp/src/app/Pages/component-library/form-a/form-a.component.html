@@ -1,4 +1,6 @@
 <div class="container">
+  <app-custom-error-summary [key]="'form-a'" [formGroups]="[customTextOne.formGroup]"></app-custom-error-summary>
+
   <h3>Form</h3>
   <div class='row'>
     <div class="col">
@@ -25,6 +27,7 @@
       <app-custom-text [formGroup]="customTextFive.formGroup" [placeholder]="customTextFive.placeholder" [hint]="customTextFive.hint"></app-custom-text>
     </div>
   </div>
+  <app-custom-button (clickFunc)='submit($event)' [text]="'Submit'" [errorCollectionKey]="'form-a'"></app-custom-button>
   <div style="height: 400px"></div>
   <app-custom-button (clickFunc)='focus($event)' [text]="'Focus'"></app-custom-button>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ErrorManagerService } from '../../Injectables/error-manager.service'
 
 @Component({
   selector: 'app-custom-button',
@@ -9,15 +10,15 @@ import { Observable } from 'rxjs';
 export class CustomButtonComponent implements OnInit {
   loading = false;
   @Input('text') text: string;
+  @Input('errorCollectionKey') errorCollectionKey: string;
   @Output('clickFunc') clickFunc = new EventEmitter();
 
-  constructor() { }
+  constructor(private errorManagerService: ErrorManagerService) { }
 
   ngOnInit() {
   }
 
   click(){
-    console.log("BUTTON CLICKED");
     var self = this;
     this.loading = true;
     var observer = {
@@ -26,6 +27,16 @@ export class CustomButtonComponent implements OnInit {
     var observable = new Observable();
     observable.subscribe(observer);
 
-    this.clickFunc.emit(observer); // send the event back up to parent so that parent func can call $event.complete()
+    if (this.errorCollectionKey){
+      var error = this.errorManagerService.get(this.errorCollectionKey);
+      error.obs.subscribe(errorId => {
+        if (errorId) {
+          this.loading = false;
+          document.getElementById(errorId).scrollIntoView({behavior: "smooth"});
+        }
+        else this.clickFunc.emit(observer); // send the event back up to parent so that parent func can call $event.complete()
+      });
+    }
+    else this.clickFunc.emit(observer); // send the event back up to parent so that parent func can call $event.complete()
   }
 }

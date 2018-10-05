@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { ErrorManagerService } from '../../../Injectables/error-manager.service'
 
 @Component({
   selector: 'app-form-a',
@@ -103,7 +104,8 @@ export class FormAComponent implements OnInit {
       'validator': new FormControl(true, []),
     }),
   }
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2,
+    private errorManagerService: ErrorManagerService) { }
 
   ngOnInit() {
     // this.customTextOne.formGroup.markAsDirty();
@@ -114,5 +116,8 @@ export class FormAComponent implements OnInit {
   focus($event){ 
     document.getElementById(this.customTextOne.formGroup.get('componentId').value).scrollIntoView({behavior: "smooth"});
     $event.complete();
+  }
+
+  submit($event){
   }
 }

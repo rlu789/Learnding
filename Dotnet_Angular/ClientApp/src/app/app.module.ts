@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ExercisesService } from './Services/exercises.service';
 import { IdManagerService } from './Injectables/id-manager.service';
+import { ErrorManagerService } from './Injectables/error-manager.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +30,7 @@ import { CustomModalComponent } from './Custom Components/custom-modal/custom-mo
 import { CustomAccordionComponent } from './Custom Components/custom-accordian/custom-accordion.component';
 import { AccordionRecordDirective } from './Custom Components/custom-accordian/accordion-record.directive';
 import { CustomCheckboxComponent } from './Custom Components/custom-checkbox/custom-checkbox.component';
+import { CustomErrorSummaryComponent } from './Custom Components/custom-error-summary/custom-error-summary.component';
 
 const appRoutes: Routes = [
   {
@@ -61,7 +63,8 @@ const appRoutes: Routes = [
     CustomModalComponent,
     CustomAccordionComponent,
     AccordionRecordDirective,
-    CustomCheckboxComponent
+    CustomCheckboxComponent,
+    CustomErrorSummaryComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -81,6 +84,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     IdManagerService,
+    ErrorManagerService,
     ExercisesService,
     DomService,
     ModalService
