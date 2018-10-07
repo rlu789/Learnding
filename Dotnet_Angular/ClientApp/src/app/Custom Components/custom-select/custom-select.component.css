@@ -16,10 +16,10 @@
   cursor: pointer;
   background-color: white;
   box-shadow: 0 2px 0 white;
-  border-radius: 3px;
   background: initial;
   list-style: none;
   z-index: 3;
+  margin: 4px 4px 8px 0;
 }
 
 .select-expand {
@@ -39,8 +39,8 @@
   position: absolute;
   top: 50%;
   right: 0;
-  -webkit-transform: translate(-50%, -45%) rotate(0deg) scaleY(1); /* Before list have been dropped */
-  transform: translate(-50%, -45%) rotate(0deg) scaleY(1);
+  -webkit-transform: translate(-50%, -45%) rotate(0deg) scale(.8); /* Before list has been dropped */
+  transform: translate(-50%, -45%) rotate(0deg) scale(.8);
   color: #3e3e3e;
   font-size: 28px;
   pointer-events: none;
@@ -53,10 +53,10 @@
   opacity: 1;
 }
 
-.select-expand:checked::after { 
-  /* After Before list have been dropped */
-  -webkit-transform: translate(-50%, -50%) rotate(180deg) scaleX(-1) scaleY(1);
-  transform: translate(-50%, -50%) rotate(180deg) scaleX(-1) scaleY(1);
+.select-expand:checked::after {
+  /* After list has been dropped */
+  -webkit-transform: translate(-50%, -50%) rotate(180deg) scaleX(-.8) scaleY(.8);
+  transform: translate(-50%, -50%) rotate(180deg) scaleX(-.8) scaleY(.8);
 }
 
 .select-expandLabel {
@@ -87,8 +87,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  border: 1px solid;
-  border-radius: 3px;
   padding-top: 40px;
   z-index: 1;
 }
@@ -120,9 +118,14 @@
   opacity: 0.6;
   background-color: transparent;
 }
-
 .select-expand:checked+.select-closeLabel {
   display: block;
+}
+
+.select-expand:checked+.select-closeLabel+.select-options{
+  /* ng material shadow values */
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  border-bottom: none;
 }
 
 .select-expand:checked+.select-closeLabel+.select-options .select-label {
@@ -144,4 +147,5 @@
 
 .select-options{
   list-style: none;
+  border-bottom: 1px solid #8f8f8f;
 }

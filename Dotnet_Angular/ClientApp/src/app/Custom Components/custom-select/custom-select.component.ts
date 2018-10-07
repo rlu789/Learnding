@@ -15,6 +15,6 @@ export class CustomSelectComponent implements OnInit {
   constructor(private idManagerService: IdManagerService) { }
 
   ngOnInit() {
-    this.componentId = this.idManagerService.generateId('select-');
+    this.componentId = this.idManagerService.generateId('select');
   }
 }

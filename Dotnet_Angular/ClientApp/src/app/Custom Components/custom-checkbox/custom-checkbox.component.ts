@@ -15,7 +15,7 @@ export class CustomCheckboxComponent implements OnInit {
   constructor(private idManagerService: IdManagerService) { }
 
   ngOnInit() {
-    this.componentId = this.idManagerService.generateId('checkbox-');
+    this.componentId = this.idManagerService.generateId('checkbox');
   }
 
 }

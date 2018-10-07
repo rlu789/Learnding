@@ -38,10 +38,10 @@
     
     <li class="nav-item dropdown" routerLinkActive="active">
       <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" (mouseover)="mouseover($event)" (mouseout)="mouseout($event)"> -->
-      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" (click)="hover=true">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Examples
       </a>
-      <div class="dropdown-menu" [ngClass]="{'show': hover}"  (mouseleave)="hover=false">
+      <div class="dropdown-menu">
         <a class="dropdown-item" routerLink="/form-a">Form A</a>
         <a class="dropdown-item">Form B</a>
         <div class="dropdown-divider"></div>

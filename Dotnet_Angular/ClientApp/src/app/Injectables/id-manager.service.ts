@@ -9,6 +9,6 @@ export class IdManagerService {
   constructor() { }
 
   public generateId(prefix: string) : string{
-    return prefix + this.idTracker++;
+    return prefix + '-' + this.idTracker++;
   }
 }

@@ -10,10 +10,11 @@ export class ErrorManagerService {
     constructor() { 
     }
 
-    init(key: string, groups: FormGroup[]) { 
+    init(key: string, groups: FormGroup[]): SingleErrorObj { 
         this.errorManagerObj[key] = {
             groups: groups,
         };
+        return this.errorManagerObj[key];
     }
 
     get(key: string): SingleErrorObj{

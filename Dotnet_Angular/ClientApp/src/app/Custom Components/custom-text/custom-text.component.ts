@@ -24,7 +24,7 @@ export class CustomTextComponent implements OnInit {
         'validator': new FormControl('', [ ]),
       });
     }
-    this.componentId = this.idManagerService.generateId('text-');
+    this.componentId = this.idManagerService.generateId('text');
     this.formGroup.addControl('componentId', new FormControl(this.componentId, [ ]))
   }
 

@@ -19,9 +19,9 @@ export class CustomErrorSummaryComponent implements OnInit {
     private idManagerService: IdManagerService) { }
 
   ngOnInit() {
-    this.componentId = this.idManagerService.generateId('error-');
-    this.errorManagerService.init(this.key, this.formGroups);
-    var errObj = this.errorManagerService.get(this.key);
+    this.componentId = this.idManagerService.generateId('error');
+    
+    var errObj = this.errorManagerService.init(this.key, this.formGroups);
     errObj.obs = new Observable<string>(observer => {
       this.visible = true;
       if (this.visible) observer.next(this.componentId);

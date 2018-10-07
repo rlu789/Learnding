@@ -16,8 +16,7 @@ export class CustomRadioComponent implements OnInit {
   constructor(private idManagerService: IdManagerService) { }
 
   ngOnInit() {
-    this.radioId = this.idManagerService.generateId('radio-');
-    console.log(this.radioId);
+    this.radioId = this.idManagerService.generateId('radio');
   }
 
 }
